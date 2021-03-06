@@ -1,25 +1,24 @@
 module.exports = {
-  env: {
-    browser: true,
-    es2021: true,
-  },
-  extends: [
-    'plugin:react/recommended',
-    'airbnb',
-    'plugin:prettier/recommended',
-  ],
-  parser: '@typescript-eslint/parser',
-  parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
+    parser: '@typescript-eslint/parser', // Specifies the ESLint parser
+    extends: [
+        'plugin:react/recommended', // Uses the recommended rules from @eslint-plugin-react
+        'plugin:@typescript-eslint/eslint-recommended', // Uses the recommended rules from the @typescript-eslint/eslint-plugin
+        'plugin:prettier/recommended', // Enables eslint-plugin-prettier and displays prettier errors as ESLint errors. Make sure this is always the last configuration in the extends array.
+    ],
+    parserOptions: {
+        ecmaVersion: 2018, // Allows for the parsing of modern ECMAScript features
+        sourceType: 'module', // Allows for the use of imports
+        ecmaFeatures: {
+            jsx: true, // Allows for the parsing of JSX
+        },
     },
-    ecmaVersion: 12,
-    sourceType: 'module',
-  },
-  plugins: [
-    'react',
-    '@typescript-eslint',
-  ],
-  rules: {
-  },
+    rules: {
+        // Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
+        // e.g. "@typescript-eslint/explicit-function-return-type": "off",
+    },
+    settings: {
+        react: {
+            version: 'detect', // Tells eslint-plugin-react to automatically detect the version of React to use
+        },
+    },
 };
