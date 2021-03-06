@@ -1,0 +1,25 @@
+.room{
+  display: grid;
+  grid-template-columns: repeat(3, 33%);
+  /* justify-content: space-around; */
+  border: solid 1px;
+  border-radius: 30px;
+  margin: 5px 0; 
+  align-items: center;
+  padding: 5px;
+}
+
+.tags{
+  display: flex;
+  flex-direction: row;
+}
+
+.tag{
+  padding: 3px 10px;
+  margin-left: 5px;
+  border-radius: 50px;
+  background-color: orange;
+  display: inherit;
+  align-items: center;
+  justify-content: center;
+}
