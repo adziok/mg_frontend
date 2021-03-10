@@ -1,4 +1,5 @@
-import './RoomBar.css';
+import React from 'react';
+import './RoomBar.scss';
 interface RoomInfo {
     name: string;
     players: string;
@@ -7,12 +8,16 @@ interface RoomInfo {
 export default function Bar(props: RoomInfo) {
     return (
         <div className="room">
-            <div>{props.name}</div>
-            <div>{props.players}</div>
+            <div className="name">{props.name}</div>
+            <div className="players">{props.players}</div>
             <div className="tags">
-                {props?.tags ? <div className="tag">{props.tags}</div> : ''}
-                <div className="tag">Funk</div>
-                <div className="tag">Rock</div>
+                {props?.tags
+                    ? props.tags.map((tag, i) => (
+                          <div key={i} className="tag">
+                              {tag}
+                          </div>
+                      ))
+                    : ''}
             </div>
         </div>
     );

@@ -1,22 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Roboto:wght@100&display=swap');
+@import '../../utils/globalVars.scss';
 * {
     padding: 0;
     margin: 0;
-    font-family: sans-serif;
+    font-family: 'Lato', sans-serif;
+    font-size: medium;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('../../utils/bg.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 .wrapper {
     height: 50vw;
     width: 100vw;
     display: grid;
     place-items: center;
+    color: #fff;
 }
 .container {
     border-radius: 20px;
-    box-shadow: 0 0 2em #b2b2b2;
+    box-shadow: 0 0 1em violet, 0 0 3em indigo;
     width: 80%;
     height: 80%;
     overflow: hidden;
     display: flex;
     flex-wrap: wrap;
+    backdrop-filter: blur(4px) brightness(60%);
 }
 
 header,
@@ -28,29 +43,92 @@ main {
 
 header {
     width: 100%;
-    height: 10%;
+    height: 15%;
     justify-content: flex-end;
-    .headerMenu {
+
+    h1 {
+        color: #fff;
+        font-weight: 600;
+        position: absolute;
+        left: 10%;
+        font-size: 30px;
+        font-family: 'Indie FLower';
+    }
+
+    .headerContent {
+        height: 100%;
         display: flex;
-        flex-direction: row;
-        &__item {
-            width: 100px;
-            border-radius: 30px;
-            background-color: #3e3ee9;
-            margin-left: 10px;
+        align-items: center;
+        padding: 0 20px 0 0;
+        justify-content: center;
+
+        .headerMenu {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            box-shadow: 0 0 1em #b2b2b2;
+            flex-direction: row;
+            height: 50%;
+            &__item {
+                width: 100px;
+                border-radius: 30px;
+                height: 100%;
+                background: linear-gradient($violet, $pinkish);
+                box-shadow: 0 0 2em $violet;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #fff;
+                border: none;
+                margin-left: 5px;
+                cursor: pointer;
+                font-weight: 600;
+            }
+            .play {
+                // background-color: $green;
+            }
         }
     }
 }
 
 section {
     width: 20%;
-    height: 90%;
+    height: 85%;
+    display: flex;
     flex-direction: column;
+
+    .searchBar {
+        width: 80%;
+        margin-left: 5px;
+    }
+    .genres {
+        display: flex;
+        flex-direction: column;
+        padding: 5px;
+        margin: 0;
+        span {
+            color: #fff;
+        }
+    }
+
+    .bottomOptions {
+        margin-bottom: 30px;
+        margin-top: auto;
+        span {
+            margin-left: 5px;
+        }
+        :first-child{
+            padding-right: 10px;
+        }
+        .createRoom {
+            margin-bottom: 20px;
+            :first-child {
+                background-color: $green;
+                border: none;
+            }
+        }
+
+        .showFull {
+            border: solid 1px #fff;
+        }
+    }
 }
 
 main {
@@ -59,14 +137,20 @@ main {
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: repeat(10, 10%);
+    // box-shadow: 0 0 1em #b2b2b2;
+    // border-radius: 10px;
+    .mainContent {
+        padding-right: 20px;
+
+        .labelBar {
+            display: grid;
+            grid-template-columns: repeat(3, 33%);
+            font-weight: 600;
+            margin-left: 15px;
+        }
+    }
 }
 
-main .labelBar {
-    display: grid;
-    grid-template-columns: repeat(3, 33%);
-}
-
-.genres {
-    display: flex;
-    flex-direction: column;
+.ant-checkbox-wrapper + .ant-checkbox-wrapper {
+    margin-left: 0;
 }
