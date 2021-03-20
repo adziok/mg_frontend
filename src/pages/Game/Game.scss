@@ -7,5 +7,12 @@
         gap: 10px;
         flex-direction: row;
     }
-    
+
+    .playersList {
+        flex-basis: 20%;
+    }
+
+    .gameBoard {
+        flex-basis: 80%;
+    }
 }

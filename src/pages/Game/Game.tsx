@@ -1,9 +1,10 @@
 import React from 'react';
 import 'pages/Game/Game.scss';
 import Container from 'components/Container/Container';
-import Content from '../../components/Content/Content';
-import Header from '../../components/Header/Header';
-import { TopMenuButton } from '../../components/Buttons';
+import Content from 'components/Content/Content';
+import Header from 'components/Header/Header';
+import { TopMenuButton } from 'components/Buttons';
+import PlayersList from './PlayersList/PlayersList';
 
 function Game() {
     return (
@@ -16,6 +17,9 @@ function Game() {
             </Header>
 
             <Content>
+                <div className="playersList">
+                    <PlayersList />
+                </div>
                 <div className="headText"></div>
                 <div className="countdownBar"></div>
                 <div className="answers">

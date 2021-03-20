@@ -1,0 +1,10 @@
+@import 'styles/_mixins';
+@import 'styles/_colors';
+@import 'styles/_typings';
+
+.playersList {
+    flex-basis: 20%;
+    .header {
+        font-size: $textMd;
+    }
+}
