@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import 'antd/dist/antd.css';
 
 import './index.css';
 import Root from './pages/Root/Root';
+import Core from './core/Core';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
     <React.StrictMode>
-        <Root />
+        <Core />
     </React.StrictMode>,
     document.getElementById('root')
 );

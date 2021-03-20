@@ -1,0 +1,20 @@
+@import 'styles/_mixins';
+
+.header {
+    height: 80px;
+    padding: 5px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+
+    h1 {
+        display: block;
+        color: #fff;
+        font-weight: 600;
+        // position: absolute;
+        // left: 10%;
+        font-size: 30px;
+        font-family: 'Indie FLower';
+    }
+}

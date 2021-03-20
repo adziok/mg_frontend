@@ -1,0 +1,125 @@
+@mixin flexCenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+// @function strip-unit($value) {
+//     @return $value / ($value * 0 + 1);
+// }
+
+// @mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) {
+//     $u1: unit($min-vw);
+//     $u2: unit($max-vw);
+//     $u3: unit($min-font-size);
+//     $u4: unit($max-font-size);
+
+//     @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+//         & {
+//             font-size: $min-font-size;
+//             @media screen and (min-width: $min-vw) {
+//                 font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+//             }
+//             @media screen and (min-width: $max-vw) {
+//                 font-size: $max-font-size;
+//             }
+//         }
+//     }
+// }
+
+// @mixin fluid-type($min-font-size: 12px, $max-font-size: 21px, $lower-range: 420px, $upper-range: 900px) {
+//     font-size: calc(#{$min-font-size} + #{(($max-font-size / ($max-font-size * 0 + 1)) - ($min-font-size / ($min-font-size * 0 + 1)))} * ( (100vw - #{$lower-range}) / #{(($upper-range / ($upper-range * 0 + 1)) - ($lower-range / ($lower-range * 0 + 1)))}));
+
+//     @media screen and (max-width: $lower-range) {
+//         font-size: $min-font-size;
+//     }
+//     @media screen and (min-width: $upper-range){
+//         font-size: $max-font-size;
+//     }
+// }
+
+// @function calc-interpolation($min-screen, $min-value, $max-screen, $max-value) {
+// 	$a: ($max-value - $min-value) / ($max-screen - $min-screen);
+// 	$b: $min-value - $a * $min-screen;
+
+// 	$sign: "+";
+// 	@if ($b < 0) {
+// 		$sign: "-";
+// 		$b: abs($b);
+// 	}
+// 	@return calc(#{$a*100}vw #{$sign} #{$b});
+// }
+
+// // I'm now recommending this technique:
+// @mixin interpolate($properties, $min-screen, $max-screen, $min-value, $max-value) {
+// 	& {
+// 		@each $property in $properties {
+// 			#{$property}: $min-value;
+// 		}
+
+// 		@media screen and (min-width: $min-screen) {
+// 			@each $property in $properties {
+// 				#{$property}: calc-interpolation(
+// 					$min-screen,
+// 					$min-value,
+// 					$max-screen,
+// 					$max-value
+// 				);
+// 			}
+// 		}
+
+// 		@media screen and (min-width: $max-screen) {
+// 			@each $property in $properties {
+// 				#{$property}: $max-value;
+// 			}
+// 		}
+// 	}
+// }
+
+// @function calc-interpolation($min-screen, $min-value, $max-screen, $max-value) {
+@function calculate($min, $max, $screen-min, $screen-max, $unit) {
+    @return calc(
+        #{$min}#{$unit} + #{($max - $min)} * (100vw - #{$screen-min}#{$unit}) / (#{$screen-max} - #{$screen-min})
+    );
+}
+
+// @mixin fluid-type($font-min, $font-max, $screen-min, $screen-max) {
+//     font-size: #{$font-min}px;
+  
+//     @media only screen and (min-width: #{$screen-min}px) {
+//         font-size: calc(
+//             #{$font-min}px + #{($font-max - $font-min)} * (100vw - #{$screen-min}px) / (#{$screen-max} - #{$screen-min})
+//         );
+//     }
+  
+//     @media only screen and (min-width: #{$screen-max}px) {
+//         font-size: #{$font-max}px;
+//     }
+// }
+
+@mixin interpolate($properties, $min-screen, $max-screen, $min-value, $max-value, $unit: 'px') {
+	& {
+
+		@media (min-width: #{$max-screen}px) {
+			@each $property in $properties {
+				#{$property}: #{$max-value}#{$unit};
+			}
+        }
+    
+		@media (max-width: #{$min-screen}px) {
+			@each $property in $properties {
+				#{$property}: #{$min-value}#{$unit};
+			}
+		}
+
+		@each $property in $properties {
+			#{$property}: #{calculate(
+                $min-value,
+                $max-value,
+                $min-screen,
+                $max-screen,
+                $unit,
+            )};
+		}
+	}
+}

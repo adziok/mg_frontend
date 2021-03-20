@@ -1,68 +1,208 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Root.scss';
-// import { useState } from 'react';
+import { useState } from 'react';
+
+import { FormGroup, Checkbox, FormControlLabel, Switch, InputBase } from '@material-ui/core';
+import { Favorite, FavoriteBorder, Search, Add } from '@material-ui/icons';
+import { Link } from 'react-router-dom';
+import { styles } from './style';
 
 import RoomBar from '../../utils/RoomBar';
+import Container from 'components/Container/Container';
+import Header from 'components/Header/Header';
+import Content from 'components/Content/Content';
 
-import { Checkbox, Input, Switch, Button } from 'antd';
+const useStyles = styles;
+
+const genresArray = ['Pop', 'Rock', 'Jazz', 'Metal', 'Country', 'Russian'];
+const roomCreator = () => {
+    return {
+        name: 'room' + Math.floor(Math.random() * 100000) + 1000,
+        players: Math.floor(Math.random() * 11) + '/10',
+        tags: [
+            genresArray[(Math.random() * genresArray.length) | 0],
+            genresArray[(Math.random() * genresArray.length) | 0],
+            genresArray[(Math.random() * genresArray.length) | 0],
+        ],
+    };
+};
+
+const generateTenRooms = () => {
+    return [...new Array(17)].map((value, key) => {
+        const newRoom = roomCreator();
+        return <RoomBar key={key} name={newRoom.name} players={newRoom.players} tags={newRoom.tags} />;
+    });
+};
+
+const roomsArr = generateTenRooms();
 
 function Root() {
-    const rooms = {
-        room1: {
-            name: 'room61513515',
-            players: '4/8',
-            tags: ['Pop', 'Rock'],
-        },
-    };
-    return (
-        <div className="wrapper">
-            <div className="container">
-                <header>
-                    <div className="headerContent">
-                        <div className="logo"></div>
-                        <h1 className="title">Music Guesser</h1>
-                        <div className="headerMenu">
-                            <button className="headerMenu__item play">Play</button>
-                            <button className="headerMenu__item login">Login</button>
-                            <button className="headerMenu__item about">About Us</button>
-                        </div>
-                    </div>
-                </header>
+    // useEffect(()=> {
 
-                <section>
-                    <Input className="searchBar" placeholder="Room's name" />
+    // }, [createState])
+
+    const genres = {
+        checkedPop: false,
+        checkedRock: false,
+        checkedCountry: false,
+        checkedMetal: false,
+        checkedJazz: false,
+        checkedRussian: false,
+    };
+
+    const [userRoomArr, setUserRoomArr] = useState<string[]>([]);
+
+    const [state, setState] = useState<Record<string, any>>(genres);
+    const [filter, setFilter] = useState<boolean>(false);
+    const [search, setSearch] = useState<string>('');
+    const [newRoomName, setNewRoomName] = useState<string>('');
+    const [createState, setCreateState] = useState<boolean>(false);
+    const classes = useStyles();
+    console.log(filter);
+    return (
+        <Container classNames="rooms">
+            <Header>
+                <div className="headerMenu">
+                    <button className="headerMenu__item play">Play</button>
+                    <button className="headerMenu__item login">Login</button>
+                    <button className="headerMenu__item about">About Us</button>
+                </div>
+            </Header>
+
+            <Content>
+                <section className="sideBar">
+                    <div className={classes.search}>
+                        <div className={classes.searchIcon}>
+                            <Search />
+                        </div>
+                        <InputBase
+                            className="searchBar"
+                            placeholder="Search…"
+                            classes={{
+                                root: classes.inputRoot,
+                                input: classes.inputInput,
+                            }}
+                            inputProps={{ 'aria-label': 'search' }}
+                            value={search}
+                            onChange={(event) => {
+                                setSearch(event.target.value);
+                            }}
+                        />
+                    </div>
                     <div className="genres">
-                        <Checkbox>Pop</Checkbox>
-                        <Checkbox>Rock</Checkbox>
-                        <Checkbox>Country</Checkbox>
-                        <Checkbox>HipHop</Checkbox>
+                        <FormGroup>
+                            {Object.keys(state).map((name: any, key) => {
+                                return (
+                                    <FormControlLabel
+                                        key={key}
+                                        control={
+                                            <Checkbox
+                                                icon={<FavoriteBorder />}
+                                                checkedIcon={<Favorite />}
+                                                checked={state[name]}
+                                                onClick={() => {
+                                                    setState({ ...state, [name]: !state[name] });
+                                                }}
+                                                name={name}
+                                            />
+                                        }
+                                        label={name.slice(7, name.length)}
+                                    />
+                                );
+                            })}
+                        </FormGroup>
                     </div>
                     <div className="bottomOptions">
-                        <div className="createRoom"></div>
+                        <div className="createRoom">
+                            {/* <Link to="/game" className="createButton">
+                                <Add />
+                                Create room
+                            </Link> */}
+                            <button className="createButton" onClick={() => setCreateState(true)}>
+                                <Add />
+                                Create room
+                            </button>
+                        </div>
 
                         <div className="showFullSwitch">
-                            <span>Hide full</span>
-                            <Switch className="showFull" defaultChecked />
+                            <label className="hideFullLabel">Hide full</label>
+                            <Switch
+                                className="hideFull"
+                                size="small"
+                                inputProps={{ 'aria-label': 'primary checkbox' }}
+                                onChange={() => {
+                                    setFilter(!filter);
+                                }}
+                            />
                         </div>
                     </div>
                 </section>
-
-                <main>
-                    <div className="mainContent">
-                        <div className="labelBar">
-                            <label>Room ID</label>
-                            <label>Players</label>
-                            <label>Tags</label>
+                {!createState ? (
+                    <main className="mainRooms">
+                        <div className="mainContent">
+                            <div className="labelBar">
+                                <label>Room ID</label>
+                                <label>Players</label>
+                                <label>Tags</label>
+                            </div>
+                            <div className="roomList">
+                                {filter
+                                    ? roomsArr.filter((record) => {
+                                          return (
+                                              record.props.players.slice(0, 2) != 10 &&
+                                              (search.length === 0 || record.props.name.includes(search))
+                                          );
+                                      })
+                                    : roomsArr.filter((record) => {
+                                          return search.length === 0 || record.props.name.includes(search);
+                                      })}
+                                {userRoomArr.map((room: string, key) => {
+                                    return <RoomBar key={key} name={room} players="1/10" tags={['Rock']} />;
+                                })}
+                            </div>
                         </div>
-                        <div className="roomList">
-                            <RoomBar name={rooms.room1.name} players={rooms.room1.players} tags={rooms.room1.tags} />
-                            <RoomBar name="room1115541315d5" players="5/5" tags={['Pop', 'HipHop', 'Cock']} />
-                            <RoomBar name="pszemkapokuj_hehe" players="4/5" tags={['Country', 'Rock', 'Cock']} />
-                        </div>
-                    </div>
-                </main>
-            </div>
-        </div>
+                    </main>
+                ) : (
+                    <main
+                        className="mainRooms"
+                        style={{ display: 'grid', gridTemplateColumns: '100%', gridTemplateRows: 'repeat(10, 10%)' }}
+                    >
+                        <p>Room&#39;s name:</p>
+                        <InputBase
+                            className="searchBar"
+                            placeholder="name"
+                            inputProps={{ 'aria-label': 'search' }}
+                            style={{ color: '#fff' }}
+                            onChange={(event) => {
+                                setNewRoomName(event.target.value);
+                            }}
+                        />
+                        <p>Password:</p>
+                        <InputBase
+                            className="searchBar"
+                            placeholder="password"
+                            inputProps={{ 'aria-label': 'search' }}
+                            style={{ color: '#fff' }}
+                            type="password"
+                            // value={search}
+                            // onChange={(event) => {
+                            //     setSearch(event.target.value);
+                            // }}
+                        />
+                        <button
+                            className="createButton"
+                            onClick={() => {
+                                setCreateState(false);
+                                userRoomArr.push(newRoomName);
+                            }}
+                        >
+                            <Add />
+                            Create!
+                        </button>
+                    </main>
+                )}
+            </Content>
+        </Container>
     );
 }
 
