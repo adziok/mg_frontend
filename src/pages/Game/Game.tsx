@@ -1,20 +1,21 @@
 import React from 'react';
 import 'pages/Game/Game.scss';
 import Container from 'components/Container/Container';
+import Content from '../../components/Content/Content';
+import Header from '../../components/Header/Header';
+import { TopMenuButton } from '../../components/Buttons';
 
 function Game() {
     return (
-        <Container>
-            <header>
-                <h1>Guess</h1>
-            </header>
-            <nav>
-                <div className="scoreboard"></div>
-                <div className="options">
-                    <button className="leave">Leave room</button>
+        <Container classNames="game">
+            <Header>
+                <div className="headerMenu">
+                    <TopMenuButton text="Leave game" />
+                    <TopMenuButton text="About us" />
                 </div>
-            </nav>
-            <main>
+            </Header>
+
+            <Content>
                 <div className="headText"></div>
                 <div className="countdownBar"></div>
                 <div className="answers">
@@ -23,7 +24,7 @@ function Game() {
                     <div className="answer"></div>
                     <div className="answer"></div>
                 </div>
-            </main>
+            </Content>
         </Container>
     );
 }

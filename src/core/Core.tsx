@@ -10,9 +10,9 @@ function Core() {
                 <Route exact path="/">
                     <Root />
                 </Route>
-                {/* <Route exact path="/game">
+                <Route exact path="/game">
                     <Game />
-                </Route> */}
+                </Route>
             </Switch>
         </Router>
     );
