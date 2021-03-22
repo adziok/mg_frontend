@@ -2,7 +2,10 @@
 @import 'styles/_colors';
 
 .top-menu-button {
-    all: unset;
+    // all: unset;
+    &:focus{
+        // offset: none;
+    }
     background: linear-gradient($violet, $pinkish);
     box-shadow: 0 0 2em $violet;
     @include flexCenter();

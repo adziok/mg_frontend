@@ -11,6 +11,7 @@ import RoomBar from '../../utils/RoomBar';
 import Container from 'components/Container/Container';
 import Header from 'components/Header/Header';
 import Content from 'components/Content/Content';
+import CreateGame from 'pages/Root/CreateGame';
 
 const useStyles = styles;
 
@@ -165,40 +166,9 @@ function Root() {
                 ) : (
                     <main
                         className="mainRooms"
-                        style={{ display: 'grid', gridTemplateColumns: '100%', gridTemplateRows: 'repeat(10, 10%)' }}
+                        // style={{ display: 'grid', gridTemplateColumns: '100%', gridTemplateRows: 'repeat(10, 10%)' }}
                     >
-                        <p>Room&#39;s name:</p>
-                        <InputBase
-                            className="searchBar"
-                            placeholder="name"
-                            inputProps={{ 'aria-label': 'search' }}
-                            style={{ color: '#fff' }}
-                            onChange={(event) => {
-                                setNewRoomName(event.target.value);
-                            }}
-                        />
-                        <p>Password:</p>
-                        <InputBase
-                            className="searchBar"
-                            placeholder="password"
-                            inputProps={{ 'aria-label': 'search' }}
-                            style={{ color: '#fff' }}
-                            type="password"
-                            // value={search}
-                            // onChange={(event) => {
-                            //     setSearch(event.target.value);
-                            // }}
-                        />
-                        <button
-                            className="createButton"
-                            onClick={() => {
-                                setCreateState(false);
-                                userRoomArr.push(newRoomName);
-                            }}
-                        >
-                            <Add />
-                            Create!
-                        </button>
+                        <CreateGame />
                     </main>
                 )}
             </Content>
