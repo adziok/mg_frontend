@@ -1,29 +1,30 @@
 import React from 'react';
 import 'pages/Game/Game.scss';
 import Container from 'components/Container/Container';
+import Content from 'components/Content/Content';
+import Header from 'components/Header/Header';
+import { BaseButton } from 'components/Buttons';
+import PlayersList from './PlayersList/PlayersList';
+import GameBoard from './GameBoard/GameBoard';
 
 function Game() {
     return (
-        <Container>
-            <header>
-                <h1>Guess</h1>
-            </header>
-            <nav>
-                <div className="scoreboard"></div>
-                <div className="options">
-                    <button className="leave">Leave room</button>
+        <Container classNames="game">
+            <Header>
+                <div className="headerMenu">
+                    <BaseButton text="Leave game" />
+                    <BaseButton text="About us" />
                 </div>
-            </nav>
-            <main>
-                <div className="headText"></div>
-                <div className="countdownBar"></div>
-                <div className="answers">
-                    <div className="answer"></div>
-                    <div className="answer"></div>
-                    <div className="answer"></div>
-                    <div className="answer"></div>
+            </Header>
+
+            <Content>
+                <div className="playersList">
+                    <PlayersList />
                 </div>
-            </main>
+                <div className="gameBoard">
+                    <GameBoard />
+                </div>
+            </Content>
         </Container>
     );
 }

@@ -1,4 +1,1 @@
-export enum ButtonTypeEnum {
-    ROUNDED = 'rounded',
-    SQUARE = 'square',
-}
+export type ButtonType = 'rounded' | 'square';

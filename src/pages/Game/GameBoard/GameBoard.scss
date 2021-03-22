@@ -1,0 +1,39 @@
+@import 'styles/_mixins';
+@import 'styles/_colors';
+@import 'styles/_typings';
+
+.game-board {
+    display: flex;
+
+    &__guess {
+        flex-basis: 65%;
+
+    }
+
+    &__round {
+        flex-basis: 35%;
+    }
+}
+
+.game-guess {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    &__title {
+        height: 50px;
+        font-size: $textXl;
+        text-align: center;
+        font-family: $italicFont;
+    }
+
+    &__answers {
+        display: grid;
+        grid-template-columns: 100%;
+        gap: 20px;
+    }
+
+    &__answer {
+
+    }
+}
