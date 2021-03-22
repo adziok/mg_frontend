@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import './index.css';
-import Root from './pages/Root/Root';
 import Core from './core/Core';
 import reportWebVitals from './reportWebVitals';
 

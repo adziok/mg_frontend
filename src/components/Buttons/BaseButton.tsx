@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import { DefaultButtonProps } from '.';
-import './TopMenuButton.scss';
+import './BaseButton.scss';
 
 const BaseButton = ({ onClick, text, type = 'rounded', size = 'large', style = 'fill' }: DefaultButtonProps) => {
     return (
