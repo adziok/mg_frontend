@@ -3,16 +3,17 @@ import 'pages/Game/Game.scss';
 import Container from 'components/Container/Container';
 import Content from 'components/Content/Content';
 import Header from 'components/Header/Header';
-import { TopMenuButton } from 'components/Buttons';
+import { BaseButton } from 'components/Buttons';
 import PlayersList from './PlayersList/PlayersList';
+import GameBoard from './GameBoard/GameBoard';
 
 function Game() {
     return (
         <Container classNames="game">
             <Header>
                 <div className="headerMenu">
-                    <TopMenuButton text="Leave game" />
-                    <TopMenuButton text="About us" />
+                    <BaseButton text="Leave game" />
+                    <BaseButton text="About us" />
                 </div>
             </Header>
 
@@ -20,13 +21,8 @@ function Game() {
                 <div className="playersList">
                     <PlayersList />
                 </div>
-                <div className="headText"></div>
-                <div className="countdownBar"></div>
-                <div className="answers">
-                    <div className="answer"></div>
-                    <div className="answer"></div>
-                    <div className="answer"></div>
-                    <div className="answer"></div>
+                <div className="gameBoard">
+                    <GameBoard />
                 </div>
             </Content>
         </Container>

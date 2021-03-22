@@ -1,3 +1,3 @@
 export * from './common';
-import { default as TopMenuButton } from './TopMenuButton';
-export { TopMenuButton };
+import { default as BaseButton } from './TopMenuButton';
+export { BaseButton };

@@ -1,14 +1,9 @@
 import React, { useEffect, useState } from 'react';
 
-import { ButtonSizeEnum, ButtonTypeEnum, DefaultButtonProps } from '.';
+import { DefaultButtonProps } from '.';
 import './TopMenuButton.scss';
 
-const defaultProps = {
-    type: ButtonTypeEnum.ROUNDED,
-    size: ButtonSizeEnum.LARGE,
-};
-
-const TopMenuButton = ({ onClick, text, type = defaultProps.type, size = defaultProps.size }: DefaultButtonProps) => {
+const BaseButton = ({ onClick, text, type = 'rounded', size = 'large' }: DefaultButtonProps) => {
     return (
         <button className={['top-menu-button', type, size].join(' ')} onClick={onClick}>
             {text}
@@ -16,4 +11,4 @@ const TopMenuButton = ({ onClick, text, type = defaultProps.type, size = default
     );
 };
 
-export default TopMenuButton;
+export default BaseButton;
