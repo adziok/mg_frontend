@@ -3,13 +3,11 @@
 
 .top-menu-button {
     all: unset;
-    background: linear-gradient($violet, $pinkish);
-    box-shadow: 0 0 2em $violet;
     @include flexCenter();
-    color: #fff;
     border: none;
     cursor: pointer;
     font-weight: 600;
+    color: #fff;
 
     &.small {
         padding: 4px 10px;
@@ -28,5 +26,15 @@
     
     &.rounded {
         border-radius: 30px;
+    }
+
+    &.fill {
+        background: linear-gradient($violet, $pinkish);
+        box-shadow: 0 0 2em $violet;
+    }
+
+    &.outlined {
+        border: solid 1px #fff;
+        background-color: transparent;
     }
 }
