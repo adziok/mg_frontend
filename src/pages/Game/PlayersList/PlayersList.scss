@@ -2,9 +2,31 @@
 @import 'styles/_colors';
 @import 'styles/_typings';
 
-.playersList {
-    flex-basis: 20%;
-    .header {
-        font-size: $textMd;
+.players-list {
+    width: 100%;
+    &__header {
+        font-size: $textLg;
+    }
+    &__list {
+        row-gap: 10px;
+        display: grid;
+        // grid-template-columns: repeat(3, 33%);
+    }
+    &__element {
+        display: grid;
+        grid-template-columns: 15% 60% 25%;
+        padding: 5px 15px;
+        border-radius: 30px;
+        background-color: #adadad;
+
+        &--index {
+        }
+
+        &--name {
+        }
+
+        &--points {
+            text-align: right;
+        }
     }
 }

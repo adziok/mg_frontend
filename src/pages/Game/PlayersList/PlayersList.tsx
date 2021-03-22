@@ -36,8 +36,17 @@ const playersList = [
 
 function PlayersList() {
     return (
-        <div className="player">
-            <header className="header">Players list:</header>
+        <div className="players-list">
+            <header className="players-list__header">Players list:</header>
+            <div className="players-list__list">
+                {playersList.map((player, i) => (
+                    <div className="players-list__element" key={i}>
+                        <div className="players-list__element--index"> {i} </div>
+                        <div className="players-list__element--name"> {player.name} </div>
+                        <div className="players-list__element--points"> {player.points} </div>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 }
