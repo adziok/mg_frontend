@@ -6,9 +6,7 @@
   padding: 0;
   margin: 0;
   font-family: 'Lato', sans-serif;
-  // font-size: medium;
   box-sizing: border-box;
-  // @include fluid-type;
 }
 
 body {
@@ -24,11 +22,6 @@ body {
   width: 100vw;
   color: #fff;
   overflow: hidden;
-  // &::-webkit-scrollbar {
-  //     display: none;
-  //   }
-  // -ms-overflow-style: none;  /* IE and Edge */
-  // scrollbar-width: none;  /* Firefox */ 
 }
 
 .container {
@@ -38,16 +31,9 @@ body {
   width: 90%;
   max-width: 1400px;
   height: 80vh;
-  // min-height: 80%;
-  // overflow: auto;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   backdrop-filter: blur(4px) brightness(60%);
   gap: 20px;
-  // &::-webkit-scrollbar {
-  //     display: none;
-  //   }
-  // -ms-overflow-style: none;  /* IE and Edge */
-  // scrollbar-width: none;  /* Firefox */ 
 }

@@ -1,21 +1,31 @@
 @import 'styles/_colors';
+@import 'styles/_mixins';
 
 .createGameContent > *{
   
-  margin: 0 0 5px 0;
+  margin: 0 0 10px 0;
 }
 
 .createGameContent{
   width: 100%;
   margin-left: 20px;
+  @include scrollBarY();
+  padding-left: 5px;
   .buttons > *{
     margin: 10px 10px 10px 0;
   }
   .buttons {
     display: flex;
+    .cancelButton {
+      background: linear-gradient($violet, red);
+    }
+    .createButton {
+      background: linear-gradient($violet, $sliderBlue);
+    }
   }
   .MuiSlider-marked {
-    color: $violet;
+    color: $sliderBlue;
+
   }
 
   .MuiSlider-markLabel {

@@ -40,23 +40,23 @@ export const players = [
 export const time = [
     {
         value: 0,
-        label: '15 sec',
+        label: '10',
     },
     {
         value: 1,
-        label: '30 sec',
+        label: '15',
     },
     {
         value: 2,
-        label: '45 sec',
+        label: '20',
     },
     {
         value: 3,
-        label: '60 sec',
+        label: '30',
     },
     {
         value: 4,
-        label: '120 sec',
+        label: '45',
     },
 ];
 
