@@ -5,11 +5,12 @@ import Root from '../pages/Root/RoomsView/Root';
 import Game from '../pages/Game/Game';
 import { CreateGameProvider } from 'pages/Root/CreateGameContext';
 import { SocketSettings, WebSocketsProvider } from './WebSockets/WebSocketsProvider';
+import { getConfig } from '../configs';
 
-export const BASE_URL = 'http://localhost:3000';
+const config = getConfig();
 
 const createConfig = (playerId: string) => ({
-    url: 'ws://localhost:3000',
+    url: config.baseWs,
     socketOptions: {
         query: { playerId },
         forceNew: false,
@@ -20,7 +21,7 @@ const createConfig = (playerId: string) => ({
 });
 
 const createGuest = (nick: string, image: string) => {
-    return axios.post(BASE_URL + '/player', {
+    return axios.post(config.baseUrl + 'player', {
         nick,
         image,
     });
