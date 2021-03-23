@@ -2,7 +2,7 @@ FROM node:14.16.0 as build
 
 WORKDIR /usr/src/app
 
-COPY yarn.lock ./
+COPY yarn.lock package.json ./
 
 RUN yarn
 
@@ -12,9 +12,9 @@ RUN yarn build
 
 FROM nginx:stable-alpine
 
-COPY --from=build /usr/src/app/build /usr/share/nginx/html
+COPY --from=build /usr/src/app/build /var/www
 
-COPY --from=build /usr/src/app/nginx/nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=build /usr/src/app/nginx/nginx.conf /etc/nginx/nginx.conf
 
 EXPOSE 80
 
