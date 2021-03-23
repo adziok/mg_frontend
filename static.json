@@ -7,8 +7,13 @@
         "/**": "index.html"
     },
     "proxies": {
-      "/api/": {
-        "origin": "${API_URL}"
-      }
+        "/api/": {
+            "origin": "${API_URL}"
+        }
+    },
+    "headers": {
+        "/**": {
+            "Access-Control-Allow-Origin": "*"
+        }
     }
-  }
+}
