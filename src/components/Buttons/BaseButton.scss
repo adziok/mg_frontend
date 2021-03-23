@@ -32,4 +32,9 @@
     &.rounded {
         border-radius: 30px;
     }
+    &.outlined {
+        background: none;
+        border: 1px solid #fff;
+        box-shadow: 0 0 1em $violet;
+    }
 }
