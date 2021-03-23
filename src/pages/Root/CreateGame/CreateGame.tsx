@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { InputBase, Slider, Typography } from '@material-ui/core';
-import { Add } from '@material-ui/icons';
+import { Add, Close } from '@material-ui/icons';
 
 import Container from 'components/Container/Container';
 import { BaseButton } from 'components/Buttons';
@@ -63,7 +63,8 @@ function CreateGame(props: any) {
             />
             <div className="buttons">
                 <BaseButton
-                    // className="createButton"
+                    icon={<Add />}
+                    additionalClass="createButton"
                     // onClick={() => {
                     //     setCreateState(false);
                     //     userRoomArr.push(newRoomName);
@@ -71,6 +72,8 @@ function CreateGame(props: any) {
                     text="Create"
                 />
                 <BaseButton
+                    icon={<Close />}
+                    additionalClass="cancelButton"
                     // className="createButton"
                     // onClick={() => {
 

@@ -120,7 +120,12 @@ function Root() {
                                 <Add />
                                 Create room
                             </Link> */}
-                            <BaseButton icon={<Add />} text="Create room" onClick={() => setCreateState(true)} />
+                            <BaseButton
+                                icon={<Add />}
+                                text="Create room"
+                                additionalClass="createButton"
+                                onClick={() => setCreateState(true)}
+                            />
                             {/* </BaseButton> */}
                         </div>
 

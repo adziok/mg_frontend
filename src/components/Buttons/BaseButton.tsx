@@ -14,7 +14,7 @@ const BaseButton = ({
 }: DefaultButtonProps) => {
     return (
         <button className={['top-menu-button', type, size, style, additionalClass].join(' ')} onClick={onClick}>
-            {[icon, text]}
+            {<span>{[icon, text]}</span>}
         </button>
     );
 };
