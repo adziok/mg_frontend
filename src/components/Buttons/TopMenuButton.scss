@@ -36,5 +36,9 @@
     &.outlined {
         border: solid 1px #fff;
         background-color: transparent;
+        transition: background-color 200ms;
+        &:hover {
+            background-color: rgba(255, 255, 255, .4);
+        }
     }
 }
