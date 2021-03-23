@@ -14,7 +14,6 @@ FROM nginx:stable-alpine
 
 COPY --from=build /usr/src/app/build /var/www
 
-
 COPY nginx/nginx.conf /etc/nginx/nginx.conf
 
 # COPY default.conf.template /etc/nginx/conf.d/default.conf.template

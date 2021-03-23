@@ -1,0 +1,5 @@
+{
+    "root": "build/",
+    "canonical_host": "${HOST}",
+    "encoding": "UTF-8"
+  }
