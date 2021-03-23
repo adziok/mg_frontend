@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
 import './Root.scss';
 import { useState } from 'react';
 
@@ -13,6 +13,8 @@ import Header from 'components/Header/Header';
 import Content from 'components/Content/Content';
 import CreateGame from 'pages/Root/CreateGame/CreateGame';
 import BaseButton from 'components/Buttons/BaseButton';
+
+import { CreateGameContext } from 'pages/Root/CreateGameContext';
 
 const useStyles = styles;
 
@@ -39,9 +41,7 @@ const generateTenRooms = () => {
 const roomsArr = generateTenRooms();
 
 function Root() {
-    // useEffect(()=> {
-
-    // }, [createState])
+    const { isBeingCreated, setIsBeingCreated } = useContext(CreateGameContext);
 
     const genres = {
         checkedPop: false,
@@ -60,7 +60,7 @@ function Root() {
     const [newRoomName, setNewRoomName] = useState<string>('');
     const [createState, setCreateState] = useState<boolean>(false);
     const classes = useStyles();
-    console.log(filter);
+
     return (
         <Container classNames="rooms">
             <Header>
@@ -124,7 +124,7 @@ function Root() {
                                 icon={<Add />}
                                 text="Create room"
                                 additionalClass="createButton"
-                                onClick={() => setCreateState(true)}
+                                onClick={() => setIsBeingCreated(true)}
                             />
                             {/* </BaseButton> */}
                         </div>
@@ -142,7 +142,7 @@ function Root() {
                         </div>
                     </div>
                 </section>
-                {!createState ? (
+                {!isBeingCreated ? (
                     <main className="mainRooms">
                         <div className="mainContent">
                             <div className="labelBar">
