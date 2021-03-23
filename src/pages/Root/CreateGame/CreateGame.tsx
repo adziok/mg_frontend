@@ -41,16 +41,16 @@ function CreateGame(props: any) {
                 max={10}
                 step={null}
                 marks={players}
-                style={{ width: '50%', marginLeft: '10px' }}
+                style={{ width: '50%', marginLeft: '5px' }}
             />
-            <p>Time per round:</p>
+            <p>Time per round &#40;in seconds&#41;:</p>
             <Slider
                 defaultValue={0}
                 min={0}
                 max={4}
                 step={null}
                 marks={time}
-                style={{ width: '50%', marginLeft: '10px' }}
+                style={{ width: '50%', marginLeft: '5px' }}
             />
             <p>Songs to guess:</p>
             <Slider
@@ -59,7 +59,7 @@ function CreateGame(props: any) {
                 max={4}
                 step={null}
                 marks={songs}
-                style={{ width: '50%', marginLeft: '10px' }}
+                style={{ width: '50%', marginLeft: '5px' }}
             />
             <div className="buttons">
                 <BaseButton

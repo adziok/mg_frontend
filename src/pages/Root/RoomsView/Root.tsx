@@ -12,6 +12,7 @@ import Container from 'components/Container/Container';
 import Header from 'components/Header/Header';
 import Content from 'components/Content/Content';
 import CreateGame from 'pages/Root/CreateGame/CreateGame';
+import BaseButton from 'components/Buttons/BaseButton';
 
 const useStyles = styles;
 
@@ -64,9 +65,9 @@ function Root() {
         <Container classNames="rooms">
             <Header>
                 <div className="headerMenu">
-                    <button className="headerMenu__item play">Play</button>
-                    <button className="headerMenu__item login">Login</button>
-                    <button className="headerMenu__item about">About Us</button>
+                    <BaseButton text="Play" additionalClass="headerMenu__item" />
+                    <BaseButton text="Login" additionalClass="headerMenu__item" />
+                    <BaseButton text="About Us" additionalClass="headerMenu__item" />
                 </div>
             </Header>
 
@@ -119,10 +120,8 @@ function Root() {
                                 <Add />
                                 Create room
                             </Link> */}
-                            <button className="createButton" onClick={() => setCreateState(true)}>
-                                <Add />
-                                Create room
-                            </button>
+                            <BaseButton icon={<Add />} text="Create room" onClick={() => setCreateState(true)} />
+                            {/* </BaseButton> */}
                         </div>
 
                         <div className="showFullSwitch">

@@ -1,13 +1,15 @@
 @import 'styles/_colors';
+@import 'styles/_mixins';
 
 .createGameContent > *{
   
-  margin: 0 0 5px 0;
+  margin: 0 0 10px 0;
 }
 
 .createGameContent{
   width: 100%;
   margin-left: 20px;
+  @include scrollBarY();
   .buttons > *{
     margin: 10px 10px 10px 0;
   }
@@ -15,7 +17,7 @@
     display: flex;
   }
   .MuiSlider-marked {
-    color: $violet;
+    // color: $violet;
   }
 
   .MuiSlider-markLabel {

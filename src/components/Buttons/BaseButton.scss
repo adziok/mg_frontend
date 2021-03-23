@@ -4,8 +4,15 @@
 .top-menu-button {
     // all: unset;
     &:focus{
-        // offset: none;
+        outline: 0;
     }
+    
+    &:hover{
+        transform: scale(1.1);
+        transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+        transition-duration: 0.5s;
+    }
+    transition-duration: 0.2s;
     background: linear-gradient($violet, $pinkish);
     box-shadow: 0 0 2em $violet;
     @include flexCenter();
@@ -13,7 +20,7 @@
     border: none;
     cursor: pointer;
     font-weight: 600;
-
+    z-index: 2;
     &.small {
         padding: 4px 10px;
         font-size: 14px;
