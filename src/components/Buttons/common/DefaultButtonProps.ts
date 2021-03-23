@@ -2,7 +2,7 @@ import { ButtonSize, ButtonStyle, ButtonType } from '..';
 
 export interface IDefaultButtonProps {
     onClick?: (event: React.MouseEvent) => void;
-    text: any; //temporarily any, cuz string | Element not working
+    text: string;
     size?: ButtonSize;
     type?: ButtonType;
     style?: ButtonStyle;

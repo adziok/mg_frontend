@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import { InputBase, Slider, Typography } from '@material-ui/core';
 import { Add, Close } from '@material-ui/icons';
@@ -8,8 +8,11 @@ import { BaseButton } from 'components/Buttons';
 import './CreateGame.scss';
 
 import { time, players, songs } from './labels';
+import { CreateGameContext } from 'pages/Root/CreateGameContext';
 
 function CreateGame(props: any) {
+    const { isBeingCreated, setIsBeingCreated } = useContext(CreateGameContext);
+
     return (
         <div className="createGameContent">
             <p>Room&#39;s name:</p>
@@ -75,9 +78,7 @@ function CreateGame(props: any) {
                     icon={<Close />}
                     additionalClass="cancelButton"
                     // className="createButton"
-                    // onClick={() => {
-
-                    // }}
+                    onClick={() => setIsBeingCreated(false)}
                     text="Cancel"
                 />
             </div>
