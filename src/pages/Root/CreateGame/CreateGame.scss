@@ -1,0 +1,24 @@
+@import 'styles/_colors';
+
+.createGameContent > *{
+  
+  margin: 0 0 5px 0;
+}
+
+.createGameContent{
+  width: 100%;
+  margin-left: 20px;
+  .buttons > *{
+    margin: 10px 10px 10px 0;
+  }
+  .buttons {
+    display: flex;
+  }
+  .MuiSlider-marked {
+    color: $violet;
+  }
+
+  .MuiSlider-markLabel {
+    color: #fff;
+  }
+}

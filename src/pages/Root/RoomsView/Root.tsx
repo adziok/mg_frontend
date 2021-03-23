@@ -7,11 +7,11 @@ import { Favorite, FavoriteBorder, Search, Add } from '@material-ui/icons';
 import { Link } from 'react-router-dom';
 import { styles } from './style';
 
-import RoomBar from '../../utils/RoomBar';
+import RoomBar from 'pages/Root/RoomsView/RoomBar/RoomBar';
 import Container from 'components/Container/Container';
 import Header from 'components/Header/Header';
 import Content from 'components/Content/Content';
-import CreateGame from 'pages/Root/CreateGame';
+import CreateGame from 'pages/Root/CreateGame/CreateGame';
 
 const useStyles = styles;
 
@@ -164,11 +164,8 @@ function Root() {
                         </div>
                     </main>
                 ) : (
-                    <main
-                        className="mainRooms"
-                        // style={{ display: 'grid', gridTemplateColumns: '100%', gridTemplateRows: 'repeat(10, 10%)' }}
-                    >
-                        <CreateGame />
+                    <main className="mainRooms">
+                        <CreateGame shouldShow={createState} />
                     </main>
                 )}
             </Content>
