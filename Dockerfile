@@ -14,8 +14,9 @@ FROM nginx:stable-alpine
 
 COPY --from=build /usr/src/app/build /var/www
 
-COPY --from=build /usr/src/app/nginx/nginx.conf /etc/nginx/nginx.conf
 
-EXPOSE 80
+COPY nginx/nginx.conf /etc/nginx/nginx.conf
 
-CMD ["nginx", "-g", "daemon off;"]
+# COPY default.conf.template /etc/nginx/conf.d/default.conf.template
+
+CMD /bin/bash -c "envsubst '\$PORT' < /etc/nginx/conf.d/default.conf.template > /etc/nginx/conf.d/default.conf" && nginx -g 'daemon off;'
