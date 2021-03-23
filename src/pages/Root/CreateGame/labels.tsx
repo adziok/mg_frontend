@@ -39,46 +39,46 @@ export const players = [
 
 export const time = [
     {
-        value: 0,
+        value: 10,
         label: '10',
     },
     {
-        value: 1,
+        value: 15,
         label: '15',
     },
     {
-        value: 2,
+        value: 20,
         label: '20',
     },
     {
-        value: 3,
-        label: '30',
+        value: 25,
+        label: '25',
     },
     {
-        value: 4,
-        label: '45',
+        value: 30,
+        label: '30',
     },
 ];
 
 export const songs = [
     {
-        value: 0,
+        value: 10,
         label: '10',
     },
     {
-        value: 1,
+        value: 15,
         label: '15',
     },
     {
-        value: 2,
+        value: 20,
         label: '20',
     },
     {
-        value: 3,
+        value: 25,
         label: '25',
     },
     {
-        value: 4,
+        value: 30,
         label: '30',
     },
 ];
