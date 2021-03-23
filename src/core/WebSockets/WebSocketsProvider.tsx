@@ -11,13 +11,13 @@ const initialState = {} as IWebSocketContext;
 const WSContext = createContext<IWebSocketContext>(initialState);
 const { Provider } = WSContext;
 
-type SocketSettings = {
+type ISocketSettings = {
     socketOptions: Partial<ManagerOptions & SocketOptions>;
     url: string;
 };
 
 type WebSocketsProviderProps = {
-    settings: SocketSettings;
+    settings: ISocketSettings;
     children?: any;
 };
 
@@ -29,7 +29,7 @@ const WebSocketsProvider = ({ children, settings }: WebSocketsProviderProps) => 
         settings && createConnection(settings);
     }, [settings]);
 
-    const createConnection = (settings: SocketSettings) => {
+    const createConnection = (settings: ISocketSettings) => {
         const ioClient = io(settings.url, settings.socketOptions);
         setSocketClient(ioClient);
     };
@@ -47,4 +47,5 @@ const WebSocketsProvider = ({ children, settings }: WebSocketsProviderProps) => 
 };
 
 export type WebSocketContext = IWebSocketContext;
+export type SocketSettings = ISocketSettings;
 export { WSContext, WebSocketsProvider };
