@@ -12,6 +12,14 @@
 
     &__round {
         flex-basis: 35%;
+        @include flexCenter();
+        flex-direction: column;
+        & > * {
+            margin-bottom: 20px;
+        }
+        &__roundIndicator {
+            font-size: 30px;
+        }
     }
 }
 

@@ -1,68 +1,70 @@
 @import 'styles/_mixins';
-// @import 'styles/_colors';
+@import 'styles/_colors';
 @import 'styles/_typings';
 
-$violet: #fff;
-
-.game-timer {
-    // border: 2px solid $violet;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    position: relative;
-    margin: 5px;
-    @include interpolate(("width", "height"), 320, 1920, 100, 200);
-
-    &__clock {
-        border: 3px solid $violet;
-        border-radius: 50%;
-        @include interpolate(("width", "height"), 320, 1920, 58, 122);
-        // margin: 10px;
-        position: relative;
-
-        &--timer {
-            @include interpolate("font-size", 320, 1920, 18, 32);
-            color: $violet;
-            // margin: 10px;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            position: absolute;
-        }
-
-        &--pointer {
-            position: relative;
-            width: 3px;
-            margin: 0 auto;
-            margin-top: 1px;
-            @include interpolate("height", 320, 1920, 19, 51);
-            border-radius: 6px;
-            background-color: $violet;
-
-            &::after {
-                background-color: $violet;
-                position: absolute;
-                top: 0;
-                content: '';
-                width: 3px;
-                border-radius: 6px;
-                height: 6px;
-                transform-origin: 46% 24%;
-                transform: rotate(35deg);
-            }
-
-            &::before {
-                background-color: $violet;
-                /* background-color: black; */
-                position: absolute;
-                top: 0;
-                content: '';
-                width: 3px;
-                border-radius: 6px;
-                height: 6px;
-                transform-origin: 59% 26%;
-                transform: rotate(-35deg);
-            }
-        }
-    }
+.timerText{
+    color: #fff !important;
+    font-size: 40px !important;
 }
+
+// .game-timer {
+//     // border: 2px solid $violet;
+//     display: flex;
+//     justify-content: space-around;
+//     align-items: center;
+//     position: relative;
+//     margin: 5px;
+//     @include interpolate(("width", "height"), 320, 1920, 100, 200);
+//     &__clock {
+//         border: 3px solid $violet;
+//         border-radius: 50%;
+//         @include interpolate(("width", "height"), 320, 1920, 58, 122);
+//         // margin: 10px;
+//         position: relative;
+
+//         &--timer {
+//             @include interpolate("font-size", 320, 1920, 18, 32);
+//             color: $violet;
+//             // margin: 10px;
+//             top: 50%;
+//             left: 50%;
+//             transform: translate(-50%, -50%);
+//             position: absolute;
+//         }
+
+//         &--pointer {
+//             position: relative;
+//             width: 3px;
+//             margin: 0 auto;
+//             margin-top: 1px;
+//             @include interpolate("height", 320, 1920, 19, 51);
+//             border-radius: 6px;
+//             background-color: $violet;
+
+//             &::after {
+//                 background-color: $violet;
+//                 position: absolute;
+//                 top: 0;
+//                 content: '';
+//                 width: 3px;
+//                 border-radius: 6px;
+//                 height: 6px;
+//                 transform-origin: 46% 24%;
+//                 transform: rotate(35deg);
+//             }
+
+//             &::before {
+//                 background-color: $violet;
+//                 /* background-color: black; */
+//                 position: absolute;
+//                 top: 0;
+//                 content: '';
+//                 width: 3px;
+//                 border-radius: 6px;
+//                 height: 6px;
+//                 transform-origin: 59% 26%;
+//                 transform: rotate(-35deg);
+//             }
+//         }
+//     }
+// }

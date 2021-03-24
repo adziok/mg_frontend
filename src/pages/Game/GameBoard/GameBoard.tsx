@@ -24,7 +24,8 @@ function GameBoard() {
                 <GameBoardGuess />
             </div>
             <div className="game-board__round">
-                <GameTimer />
+                <GameTimer time={20} />
+                <span className="game-board__round__roundIndicator">Round 2/10</span>
             </div>
         </div>
     );
