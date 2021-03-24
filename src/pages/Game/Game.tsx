@@ -6,13 +6,16 @@ import Header from 'components/Header/Header';
 import { BaseButton } from 'components/Buttons';
 import PlayersList from './PlayersList/PlayersList';
 import GameBoard from './GameBoard/GameBoard';
+import { Link } from 'react-router-dom';
 
 function Game() {
     return (
         <Container classNames="game">
             <Header>
                 <div className="headerMenu">
-                    <BaseButton text="Leave game" />
+                    <Link to="/" className="headerMenu__leaveButton">
+                        {<BaseButton text="Leave game" />}
+                    </Link>
                     <BaseButton text="About us" />
                 </div>
             </Header>

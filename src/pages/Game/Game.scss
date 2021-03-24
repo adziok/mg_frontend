@@ -2,10 +2,15 @@
 @import 'styles/_colors';
 
 .game {
+
     .headerMenu {
         display: flex;
         gap: 10px;
         flex-direction: row;
+
+        &__leaveButton:link {
+            text-decoration: none;
+        }
     }
 
     .playersList {
