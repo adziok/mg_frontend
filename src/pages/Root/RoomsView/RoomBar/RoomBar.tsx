@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './RoomBar.scss';
 interface RoomInfo {
     name: string;
@@ -6,8 +7,12 @@ interface RoomInfo {
     tags?: string[];
 }
 export default function Bar(props: RoomInfo) {
+    const handleClick = () => {
+        <Link to="/game" />;
+        console.log('penis');
+    };
     return (
-        <div className="room">
+        <Link to="/game" className="room" onClick={handleClick}>
             <div className="name">{props.name}</div>
             <div className="players">{props.players}</div>
             <div className="tags">
@@ -19,6 +24,6 @@ export default function Bar(props: RoomInfo) {
                       ))
                     : ''}
             </div>
-        </div>
+        </Link>
     );
 }

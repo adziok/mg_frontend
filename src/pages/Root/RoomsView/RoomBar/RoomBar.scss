@@ -28,3 +28,13 @@
         }
     }
 }
+.room {
+    color: #fff;
+
+    &:link,
+    &:active,
+    &:hover,
+    &:visited {
+        text-decoration: none;
+    }
+}
