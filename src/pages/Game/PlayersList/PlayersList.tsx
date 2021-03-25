@@ -1,6 +1,8 @@
 import React from 'react';
 import './PlayersList.scss';
 
+import { Star } from '@material-ui/icons';
+
 import Container from 'components/Container/Container';
 
 const playersList = [
@@ -34,6 +36,19 @@ const playersList = [
     },
 ];
 
+// enum starsEnum {
+//     a = "{<Star style={{color: 'orange'}} />}",
+//     b = "{<Star style={{color: 'grey'}} />}",
+//     c = "{<Star style={{color: 'brown'}} />}",
+// }
+const starsEnum = [
+    <Star key={'1st'} style={{ color: 'Gold' }} />,
+    <Star key={'2nd'} style={{ color: 'Silver' }} />,
+    <Star key={'3rd'} style={{ color: 'SaddleBrown' }} />,
+];
+
+Object.freeze(starsEnum);
+
 function PlayersList() {
     return (
         <div className="players-list">
@@ -41,7 +56,7 @@ function PlayersList() {
             <div className="players-list__list">
                 {playersList.map((player, i) => (
                     <div className="players-list__element" key={i}>
-                        <div className="players-list__element--index"> {i} </div>
+                        <div className="players-list__element--index"> {i < 3 ? starsEnum[i] : ''} </div>
                         <div className="players-list__element--name"> {player.name} </div>
                         <div className="players-list__element--points"> {player.points} </div>
                     </div>
