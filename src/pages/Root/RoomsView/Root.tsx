@@ -63,14 +63,14 @@ const roomCreator = () => {
     };
 };
 
-const generateTenRooms = () => {
-    return [...new Array(17)].map((value, key) => {
+const generateSampleRooms = () => {
+    return [...new Array(3)].map((value, key) => {
         const newRoom = roomCreator();
         return <RoomBar key={key} name={newRoom.name} players={newRoom.players} tags={newRoom.tags} />;
     });
 };
 
-const roomsArr = generateTenRooms();
+const roomsArr = generateSampleRooms();
 
 function Root() {
     const { isBeingCreated, setIsBeingCreated } = useContext(CreateGameContext);
@@ -189,7 +189,7 @@ function Root() {
                                 <label>Tags</label>
                             </div>
                             <div className="roomList">
-                                {/* {filter
+                                {filter
                                     ? roomsArr.filter((record) => {
                                           return (
                                               record.props.players.slice(0, 2) != 10 &&
@@ -198,7 +198,7 @@ function Root() {
                                       })
                                     : roomsArr.filter((record) => {
                                           return search.length === 0 || record.props.name.includes(search);
-                                      })} */}
+                                      })}
                                 {rooms.map((room, key) => {
                                     return (
                                         <RoomBar
@@ -209,6 +209,7 @@ function Root() {
                                         />
                                     );
                                 })}
+                                {generateSampleRooms}
                             </div>
                         </div>
                     </main>
