@@ -18,14 +18,17 @@ function CreateGame(props: any) {
     const [maxNumOfPlayers, setMaxNumOfPlayers] = useState<any>(5);
     const [timePerRound, setTimePerRound] = useState<any>(15);
     const [songsToGuess, setSongsToGuess] = useState<any>(15);
-    const [roomObj, setRoomObj] = useState({
-        name: name,
-        password: pass,
-        maxNumOfPlayers: maxNumOfPlayers,
-        timePerRound: timePerRound,
-        songsToGuess: songsToGuess,
-    });
-    console.log(roomObj);
+
+    const createRoomObj = () => {
+        return {
+            roomName: name,
+            roomPass: pass,
+            maxNumOfPlayers: maxNumOfPlayers,
+            timePerRound: timePerRound,
+            songsToGuess: songsToGuess,
+        };
+    };
+
     return (
         <div className="createGameContent">
             <p>Room&#39;s name:</p>
@@ -88,10 +91,9 @@ function CreateGame(props: any) {
                 <BaseButton
                     icon={<Add />}
                     additionalClass="createButton"
-                    // onClick={() => {
-                    //     setCreateState(false);
-                    //     userRoomArr.push(newRoomName);
-                    // }}
+                    onClick={() => {
+                        console.log(createRoomObj());
+                    }}
                     text="Create"
                 />
                 <BaseButton
