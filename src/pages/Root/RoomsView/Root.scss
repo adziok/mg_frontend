@@ -37,8 +37,10 @@
         .bottomOptions {
             // margin-bottom: 30px;
             margin-top: auto;
+            
             .hideFullLabel:first-child  {
-                margin: 0 10px 0 0;
+                margin-left: 5px;
+                margin-right: 10px;
             }
             .createRoom {
                 margin: 20px 0;
