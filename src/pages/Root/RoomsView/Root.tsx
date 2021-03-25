@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useContext, useReducer } from 'react';
 import './Root.scss';
 import { useState } from 'react';
 
@@ -15,8 +15,40 @@ import CreateGame from 'pages/Root/CreateGame/CreateGame';
 import BaseButton from 'components/Buttons/BaseButton';
 
 import { CreateGameContext } from 'pages/Root/CreateGameContext';
+import { getRoomList } from '../../../utils/actions';
 
 const useStyles = styles;
+
+const useRooms = (initialState = []) => {
+    const [afterFirstLoad, fstLoad] = useState(false);
+    const [rooms, dispatch] = useReducer((state: any, action: any) => {
+        switch (action.type) {
+            case 'loadRooms':
+                return action.payload || [];
+            default:
+                throw new Error();
+        }
+    }, initialState);
+
+    const reloadRooms = (): void => {
+        getRoomList().then(({ data }) => dispatch({ type: 'loadRooms', payload: data }));
+    };
+
+    !afterFirstLoad && (reloadRooms(), fstLoad(true));
+
+    return [rooms, reloadRooms] as [
+        {
+            _id: string;
+            players: number;
+            name: string;
+            settings: any;
+            tags: [];
+            questionSources: any;
+            status: string;
+        }[],
+        any
+    ];
+};
 
 const genresArray = ['Pop', 'Rock', 'Jazz', 'Metal', 'Country', 'Russian'];
 const roomCreator = () => {
@@ -60,6 +92,11 @@ function Root() {
     const [newRoomName, setNewRoomName] = useState<string>('');
     const [createState, setCreateState] = useState<boolean>(false);
     const classes = useStyles();
+
+    //testing
+    const [rooms, loadRooms] = useRooms();
+
+    //>testing
 
     return (
         <Container classNames="rooms">
@@ -152,7 +189,7 @@ function Root() {
                                 <label>Tags</label>
                             </div>
                             <div className="roomList">
-                                {filter
+                                {/* {filter
                                     ? roomsArr.filter((record) => {
                                           return (
                                               record.props.players.slice(0, 2) != 10 &&
@@ -161,9 +198,16 @@ function Root() {
                                       })
                                     : roomsArr.filter((record) => {
                                           return search.length === 0 || record.props.name.includes(search);
-                                      })}
-                                {userRoomArr.map((room: string, key) => {
-                                    return <RoomBar key={key} name={room} players="1/10" tags={['Rock']} />;
+                                      })} */}
+                                {rooms.map((room, key) => {
+                                    return (
+                                        <RoomBar
+                                            key={room._id}
+                                            name={room.name}
+                                            players={room.players + '/10'}
+                                            tags={['Rock']}
+                                        />
+                                    );
                                 })}
                             </div>
                         </div>
