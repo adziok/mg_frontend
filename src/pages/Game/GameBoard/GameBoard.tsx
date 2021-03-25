@@ -6,12 +6,12 @@ import GameTimer from './GameTimer/GameTimer';
 function GameBoardGuess() {
     return (
         <div className="game-guess">
-            <div className="game-guess__title">Co to chleb Pana Mariana</div>
+            <div className="game-guess__title">Z warkoczykami czy bez warkoczyków?</div>
             <div className="game-guess__answers">
-                <BaseButton style="outlined" text="Dupa" />
-                <BaseButton style="outlined" text="Kupa" />
-                <BaseButton style="outlined" text="Ziemniaki" />
-                <BaseButton style="outlined" text="Droźdzaki" />
+                <BaseButton style="outlined" text="Z warkoczykami" />
+                <BaseButton style="outlined" text="Bez warkoczyków" />
+                <BaseButton style="outlined" text="Po co mam wybierać" />
+                <BaseButton style="outlined" text="Najlepiej zabrać obie" />
             </div>
         </div>
     );
