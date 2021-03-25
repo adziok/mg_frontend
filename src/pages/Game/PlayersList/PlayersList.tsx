@@ -7,44 +7,44 @@ import Container from 'components/Container/Container';
 
 const playersList = [
     {
-        name: 'Player1',
-        points: 1520,
+        name: 'Wojtyła',
+        points: 2137,
     },
     {
-        name: 'Player2',
-        points: 455,
+        name: 'Małe dziewczynki',
+        points: 444,
     },
     {
         name: 'Adziok69',
         points: 420,
     },
     {
-        name: 'KostiHard',
-        points: 320,
+        name: 'Martyna',
+        points: 321,
     },
     {
-        name: 'KostiMiekki',
-        points: 280,
+        name: 'Siusiakim',
+        points: 111,
     },
     {
-        name: 'KostiHard2',
-        points: 120,
+        name: 'TwardyKrystian',
+        points: 18,
     },
     {
-        name: 'PRzemAS',
-        points: 20,
+        name: 'MiękkiKrystian',
+        points: 8,
     },
     {
-        name: 'kotas',
-        points: 20,
+        name: 'Triangle720',
+        points: 1,
     },
     {
-        name: 'Wojtyła',
-        points: 20,
+        name: 'Wuł',
+        points: 0,
     },
     {
         name: 'Stalin',
-        points: 20,
+        points: 0,
     },
 ];
 
