@@ -14,8 +14,9 @@ function Game() {
             <Header>
                 <div className="headerMenu">
                     <Link to="/" className="headerMenu__leaveButton">
-                        {<BaseButton text="Leave game" />}
+                        {<BaseButton text="Leave game" style="fillRed" />}
                     </Link>
+                    <BaseButton text="Invite friends" style="fillBlue" />
                     <BaseButton text="About us" />
                 </div>
             </Header>

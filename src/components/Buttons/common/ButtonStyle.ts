@@ -1,1 +1,1 @@
-export type ButtonStyle = 'fill' | 'outlined';
+export type ButtonStyle = 'fillBase' | 'fillRed' | 'fillBlue' | 'outlined';

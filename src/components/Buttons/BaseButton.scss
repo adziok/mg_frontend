@@ -48,4 +48,10 @@
         border: 1px solid #fff;
         box-shadow: 0 0 1em $violet;
     }
+    &.fillRed{
+        background: linear-gradient($violet, $red);
+    }
+    &.fillBlue{
+        background: linear-gradient($violet, $sliderBlue);
+    }  
 }
