@@ -21,10 +21,16 @@ const createConfig = (playerId: string) => ({
 });
 
 const createGuest = (nick: string, image: string) => {
-    return axios.post(config.baseUrl + 'player', {
-        nick,
-        image,
-    });
+    return axios.post(
+        config.baseUrl + '/player',
+        {
+            nick,
+            image,
+        },
+        {
+            withCredentials: false,
+        }
+    );
 };
 
 const initApp = (): any => {
