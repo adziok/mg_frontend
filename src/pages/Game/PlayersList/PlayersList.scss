@@ -11,6 +11,7 @@
         border-bottom: 2px solid $violet;
     }
     &__list {
+        @include scrollBarY(); //nie chce się wyświetlić scroll, chyba coś związanego z gridem w __element
         row-gap: 10px;
         display: grid;
         // grid-template-columns: repeat(3, 33%);
@@ -21,6 +22,7 @@
         padding: 8px 15px;
         border-radius: 30px;
         background-color: $violet;
+        height: 40px;
 
         &--index {
         }

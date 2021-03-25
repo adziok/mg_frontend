@@ -34,6 +34,18 @@ const playersList = [
         name: 'PRzemAS',
         points: 20,
     },
+    {
+        name: 'kotas',
+        points: 20,
+    },
+    {
+        name: 'Wojtyła',
+        points: 20,
+    },
+    {
+        name: 'Stalin',
+        points: 20,
+    },
 ];
 
 // enum starsEnum {
@@ -42,9 +54,9 @@ const playersList = [
 //     c = "{<Star style={{color: 'brown'}} />}",
 // }
 const starsEnum = [
-    <Star key={'1st'} style={{ color: 'Gold' }} />,
-    <Star key={'2nd'} style={{ color: 'Silver' }} />,
-    <Star key={'3rd'} style={{ color: 'SaddleBrown' }} />,
+    <Star key={'1st'} style={{ color: 'Gold', fontSize: '20px' }} />,
+    <Star key={'2nd'} style={{ color: 'Silver', fontSize: '20px' }} />,
+    <Star key={'3rd'} style={{ color: 'SaddleBrown', fontSize: '20px' }} />,
 ];
 
 Object.freeze(starsEnum);

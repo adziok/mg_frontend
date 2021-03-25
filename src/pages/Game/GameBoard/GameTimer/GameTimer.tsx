@@ -22,11 +22,15 @@ function GameTimerDisplay(props: any) {
     //     setTimeout(() => {
     //         setTime(time - 1);
     //     }, 1000);
-
+    const actualTime = props.value / (100 / props.time);
     return (
         <div className="game-timer">
             <Box position="relative" display="inline-flex">
-                <CircularProgress size="120px" thickness="5" variant="static" {...props} />
+                {actualTime > 5 ? (
+                    <CircularProgress size="120px" thickness="5" variant="static" {...props} />
+                ) : (
+                    <CircularProgress size="120px" thickness="5" variant="static" style={{ color: 'red' }} {...props} />
+                )}
                 <Box
                     top={0}
                     left={0}
@@ -38,7 +42,7 @@ function GameTimerDisplay(props: any) {
                     justifyContent="center"
                 >
                     <Typography className="timerText" variant="caption" component="div" color="textSecondary">
-                        {props.value / (100 / props.time)}
+                        {actualTime}
                     </Typography>
                 </Box>
             </Box>
