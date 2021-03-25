@@ -8,7 +8,7 @@ const BaseButton = ({
     text,
     type = 'rounded',
     size = 'large',
-    style = 'fill',
+    style = 'outlined',
     icon,
     additionalClass,
 }: DefaultButtonProps) => {

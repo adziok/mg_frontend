@@ -42,8 +42,8 @@
             }
             .createRoom {
                 margin: 20px 0;
-                .createButton {
-                    background: linear-gradient($violet, $sliderBlue);
+                .buttonHidden {
+                    display: none;
                 }
             }
         }

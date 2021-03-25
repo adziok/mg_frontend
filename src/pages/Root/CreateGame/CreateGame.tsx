@@ -90,7 +90,8 @@ function CreateGame(props: any) {
             <div className="buttons">
                 <BaseButton
                     icon={<Add />}
-                    additionalClass="createButton"
+                    // additionalClass="createButton"
+                    style="fillBlue"
                     onClick={() => {
                         console.log(createRoomObj());
                     }}
@@ -98,7 +99,8 @@ function CreateGame(props: any) {
                 />
                 <BaseButton
                     icon={<Close />}
-                    additionalClass="cancelButton"
+                    style="fillRed"
+                    // additionalClass="cancelButton"
                     // className="createButton"
                     onClick={() => setIsBeingCreated(false)}
                     text="Cancel"

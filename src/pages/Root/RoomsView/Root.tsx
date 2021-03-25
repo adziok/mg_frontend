@@ -160,7 +160,8 @@ function Root() {
                             <BaseButton
                                 icon={<Add />}
                                 text="Create room"
-                                additionalClass="createButton"
+                                additionalClass={isBeingCreated ? 'buttonHidden' : ''}
+                                style="fillBlue"
                                 onClick={() => setIsBeingCreated(true)}
                             />
                             {/* </BaseButton> */}
