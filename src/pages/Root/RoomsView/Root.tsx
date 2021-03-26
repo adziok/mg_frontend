@@ -206,6 +206,7 @@ function Root() {
                                             name={room.name}
                                             players={room.players + '/10'}
                                             tags={['Rock']}
+                                            id={room._id}
                                         />
                                     );
                                 })}

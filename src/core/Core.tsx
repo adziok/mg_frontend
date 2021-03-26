@@ -6,6 +6,7 @@ import Game from '../pages/Game/Game';
 import { CreateGameProvider } from 'pages/Root/CreateGameContext';
 import { SocketSettings, WebSocketsProvider } from './WebSockets/WebSocketsProvider';
 import { getConfig } from '../configs';
+import Room from 'pages/Room/Room';
 
 const config = getConfig();
 
@@ -60,6 +61,9 @@ function Core() {
                         </Route>
                         <Route exact path="/game">
                             <Game />
+                        </Route>
+                        <Route exact path="/room/:id">
+                            <Room />
                         </Route>
                     </CreateGameProvider>
                 </WebSocketsProvider>

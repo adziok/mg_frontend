@@ -2,17 +2,17 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './RoomBar.scss';
 interface RoomInfo {
+    id?: string;
     name: string;
     players: string;
     tags?: string[];
 }
 export default function Bar(props: RoomInfo) {
     const handleClick = () => {
-        <Link to="/game" />;
-        console.log('penis');
+        return <Link to={'/room/' + props.id} />;
     };
     return (
-        <Link to="/game" className="room" onClick={handleClick}>
+        <Link to={'/room/' + props.id} className="room" onClick={handleClick}>
             <div className="name">{props.name}</div>
             <div className="players">{props.players}</div>
             <div className="tags">
