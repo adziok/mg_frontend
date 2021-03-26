@@ -54,15 +54,28 @@ export const getRoomList = () => {
 };
 
 export const createGuest = (nick: string, image: string) => {
-    return axios.post(BASE_URL + '/player', {
-        nick,
-        image,
-    });
+    return axios.post(
+        BASE_URL + '/player',
+        {
+            nick,
+            image,
+        },
+        {
+            withCredentials: false,
+        }
+    );
 };
 
 export const startGame = (playerId: string, roomId: string) => {
-    return axios.post(BASE_URL + '/game', {
-        playerId,
-        roomId,
-    });
+    return axios.post(
+        BASE_URL + '/game',
+        {
+            playerId,
+            roomId,
+        },
+
+        {
+            withCredentials: false,
+        }
+    );
 };
