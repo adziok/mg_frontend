@@ -61,7 +61,7 @@ export const createGuest = (nick: string, image: string) => {
             image,
         },
         {
-            withCredentials: false,
+            withCredentials: true,
         }
     );
 };
@@ -73,7 +73,6 @@ export const startGame = (playerId: string, roomId: string) => {
             playerId,
             roomId,
         },
-
         {
             withCredentials: false,
         }
