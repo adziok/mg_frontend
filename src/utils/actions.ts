@@ -17,11 +17,10 @@ export const createRoom = (creatorId: string) => {
     );
 };
 
-export const joinRoom = (playerId: string, roomId: string) => {
+export const joinRoom = (roomId: string) => {
     return axios.post(
         BASE_URL + '/room/join',
         {
-            playerId,
             roomId,
         },
         {
@@ -42,11 +41,8 @@ export const leftRoom = (playerId: string) => {
     );
 };
 
-export const getCurrentRoom = (playerId: string) => {
+export const getCurrentRoom = () => {
     return axios.get(BASE_URL + '/room/me', {
-        params: {
-            playerId,
-        },
         withCredentials: false,
     });
 };
