@@ -1,4 +1,4 @@
 export const productionConfig = {
-    baseUrl: 'https://music-guesser.herokuapp.com/api',
-    baseWs: 'wss://music-guesser.herokuapp.com/api',
+    baseUrl: 'https://music-gueser-fron.herokuapp.com/api',
+    baseWs: 'wss://music-gueser-front.herokuapp.com/api',
 };
