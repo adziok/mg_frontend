@@ -2,12 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import './index.css';
-import Core from './core/Core';
+import Routing from './core/Routing';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
     <React.StrictMode>
-        <Core />
+        <Routing />
     </React.StrictMode>,
     document.getElementById('root')
 );

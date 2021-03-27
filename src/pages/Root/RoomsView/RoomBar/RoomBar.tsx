@@ -12,7 +12,7 @@ export default function Bar(props: RoomInfo) {
         return <Link to={'/room/' + props.id} />;
     };
     return (
-        <Link to={'/room/' + props.id} className="room" onClick={handleClick}>
+        <Link to={'/room/' + props.id + '/join'} className="room" onClick={handleClick}>
             <div className="name">{props.name}</div>
             <div className="players">{props.players}</div>
             <div className="tags">

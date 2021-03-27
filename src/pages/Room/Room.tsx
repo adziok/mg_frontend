@@ -8,12 +8,15 @@ import { BaseButton } from 'components/Buttons';
 import Content from 'components/Content/Content';
 
 function Room() {
-    const params = useParams<{ id: string }>();
+    const params = useParams<{ id: string; join: string }>();
     const [room, { joinRoom, reloadRoom }] = useRoomController();
 
     useEffect(() => {
-        if (params?.id) {
+        if (params?.id && params?.join) {
             joinRoom(params?.id);
+        }
+        if (params?.id) {
+            reloadRoom();
         }
     }, [params?.id]);
 
@@ -27,7 +30,7 @@ function Room() {
             </Header>
             <Content>
                 <header>
-                    <h1>Guess {room.error}</h1>
+                    <h1>Guess {room.room?._id}</h1>
                 </header>
                 <nav>
                     <div className="scoreboard"></div>
