@@ -8,10 +8,10 @@ function GameBoardGuess() {
         <div className="game-guess">
             <div className="game-guess__title">Z warkoczykami czy bez warkoczyków?</div>
             <div className="game-guess__answers">
-                <BaseButton style="outlined" text="Z warkoczykami" />
-                <BaseButton style="outlined" text="Bez warkoczyków" />
-                <BaseButton style="outlined" text="Po co mam wybierać" />
-                <BaseButton style="outlined" text="Najlepiej zabrać obie" />
+                <BaseButton text="Z warkoczykami" />
+                <BaseButton text="Bez warkoczyków" />
+                <BaseButton text="Po co mam wybierać" />
+                <BaseButton text="Najlepiej zabrać obie" />
             </div>
         </div>
     );

@@ -4,7 +4,7 @@ import Container from 'components/Container/Container';
 import Content from 'components/Content/Content';
 import Header from 'components/Header/Header';
 import { BaseButton } from 'components/Buttons';
-import PlayersList from './PlayersList/PlayersList';
+import Scoreboard from './Scordeboard/Scoreboard';
 import GameBoard from './GameBoard/GameBoard';
 import { Link } from 'react-router-dom';
 
@@ -23,7 +23,7 @@ function Game() {
 
             <Content>
                 <div className="playersList">
-                    <PlayersList />
+                    <Scoreboard />
                 </div>
                 <div className="gameBoard">
                     <GameBoard />

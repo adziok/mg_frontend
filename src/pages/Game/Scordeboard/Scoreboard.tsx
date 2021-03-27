@@ -1,5 +1,5 @@
 import React from 'react';
-import './PlayersList.scss';
+import './Scoreboard.scss';
 
 import { Star } from '@material-ui/icons';
 

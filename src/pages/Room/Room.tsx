@@ -6,6 +6,9 @@ import { useRoomController } from './RoomController';
 import Header from 'components/Header/Header';
 import { BaseButton } from 'components/Buttons';
 import Content from 'components/Content/Content';
+import PlayersList from 'pages/Room/CreateRoom/PlayersList/PlayersList';
+import { Link } from 'react-router-dom';
+import CreateRoomConfig from './CreateRoom/CreateRoomConfig';
 
 function Room() {
     const params = useParams<{ id: string; join: string }>();
@@ -21,33 +24,24 @@ function Room() {
     }, [params?.id]);
 
     return (
-        <Container>
+        <Container classNames="room">
             <Header>
                 <div className="headerMenu">
-                    <BaseButton text="Leave room" additionalClass="headerMenu__item" />
-                    <BaseButton text="About Us" additionalClass="headerMenu__item" />
+                    <Link to="/" className="headerMenu__leaveButton">
+                        {<BaseButton text="Leave game" style="fillRed" />}
+                    </Link>
+                    <BaseButton text="Invite friends" style="fillBlue" />
+                    <BaseButton text="About us" />
                 </div>
             </Header>
+
             <Content>
-                <header>
-                    <h1>Guess {room.room?._id}</h1>
-                </header>
-                <nav>
-                    <div className="scoreboard"></div>
-                    <div className="options">
-                        <button className="leave">Leave room</button>
-                    </div>
-                </nav>
-                <main>
-                    <div className="headText"></div>
-                    <div className="countdownBar"></div>
-                    <div className="answers">
-                        <div className="answer"></div>
-                        <div className="answer"></div>
-                        <div className="answer"></div>
-                        <div className="answer"></div>
-                    </div>
-                </main>
+                <div className="lobby">
+                    <PlayersList />
+                </div>
+                <div className="configuration">
+                    <CreateRoomConfig />
+                </div>
             </Content>
         </Container>
     );

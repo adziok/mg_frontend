@@ -1,0 +1,24 @@
+@import 'styles/_mixins';
+@import 'styles/_colors';
+
+.room {
+	flex-direction: row;
+    .headerMenu {
+        display: flex;
+        gap: 10px;
+        flex-direction: row;
+
+        &__leaveButton:link {
+            text-decoration: none;
+        }
+    }
+
+    .lobby {
+        flex-basis: 25%;
+    }
+
+    .configuration {
+        flex-basis: 75%;
+        padding-left: 50px;
+    }
+}

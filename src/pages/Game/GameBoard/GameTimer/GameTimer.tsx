@@ -27,9 +27,15 @@ function GameTimerDisplay(props: any) {
         <div className="game-timer">
             <Box position="relative" display="inline-flex">
                 {actualTime > 5 ? (
-                    <CircularProgress size="120px" thickness="5" variant="static" {...props} />
+                    <CircularProgress size="120px" thickness={5} variant="determinate" {...props} />
                 ) : (
-                    <CircularProgress size="120px" thickness="5" variant="static" style={{ color: 'red' }} {...props} />
+                    <CircularProgress
+                        size="120px"
+                        thickness={5}
+                        variant="determinate"
+                        style={{ color: 'red' }}
+                        {...props}
+                    />
                 )}
                 <Box
                     top={0}
