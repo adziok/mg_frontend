@@ -1,5 +1,7 @@
-import React, { useReducer, useState } from 'react';
+import React, { useContext, useReducer, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { joinRoom, getCurrentRoom } from '../../utils/actions';
+import { WSContext } from 'core/WebSockets/WebSocketsProvider';
 
 type LoadRoom = {
     room: {
@@ -24,6 +26,8 @@ const LoadRoomResult = {
 const loadRoomInitial: LoadRoom = { room: null, loading: true, error: null };
 
 export const useRoomController = () => {
+    const history = useHistory();
+    const { handleEvent, emitEvent } = useContext(WSContext);
     const [room, dispatch] = useReducer((state: any, action: any) => {
         switch (action.type) {
             case 'loadRoomInit':
@@ -46,7 +50,15 @@ export const useRoomController = () => {
 
     const joinRoomAction = (id: string): void => {
         joinRoom(id)
-            .then(() => reloadRoomAction())
+            .then(
+                () => (
+                    reloadRoomAction(),
+                    emitEvent('JOIN_ROOM', { roomId: id }),
+                    handleEvent('GAME_STARTED', (e) => {
+                        history.push('/game');
+                    })
+                )
+            )
             .catch(({ data }) => dispatch({ type: 'loadRoomFailure', payload: data }));
     };
 
