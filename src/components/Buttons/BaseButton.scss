@@ -53,5 +53,8 @@
     }
     &.fillBlue{
         background: linear-gradient($violet, $sliderBlue);
-    }  
+    }
+    &.icon {
+        font-size: 10px;
+    }
 }

@@ -21,4 +21,19 @@
         flex-basis: 75%;
         padding-left: 50px;
     }
+
+    .notifications {
+        position: absolute;
+        bottom: 0;
+        & > * {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-bottom: 10px;
+            & > * {
+                margin-right: 5px;
+            }
+        }
+
+    }
 }

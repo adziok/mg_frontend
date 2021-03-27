@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 
-import { InputBase, Slider, Typography } from '@material-ui/core';
+import { InputBase, Slider, Typography, Switch } from '@material-ui/core';
 import { Add, Close } from '@material-ui/icons';
 
 import Container from 'components/Container/Container';
@@ -29,31 +29,51 @@ function CreateGame(props: any) {
         };
     };
 
+    const [isPublic, setIsPublic] = useState<boolean>(false);
+
     return (
         <div className="createGameContent">
-            <p>Room&#39;s name:</p>
-            <InputBase
-                className="searchBar"
-                placeholder="name"
-                // inputProps={{ 'aria-label': 'search' }}
-                style={{ color: '#fff' }}
-                value={name}
-                onChange={(event) => {
-                    setName(event.target.value);
-                }}
-            />
-            <p>Password:</p>
-            <InputBase
-                className="searchBar"
-                placeholder="password"
-                // inputProps={{ 'aria-label': 'search' }}
-                style={{ color: '#fff' }}
-                type="password"
-                value={pass}
-                onChange={(event) => {
-                    setPass(event.target.value);
-                }}
-            />
+            <div className="roomPrivacy">
+                <div className="roomName">
+                    <p>Room&#39;s name:</p>
+                    <InputBase
+                        className="searchBar"
+                        placeholder="name"
+                        // inputProps={{ 'aria-label': 'search' }}
+                        style={{ color: '#fff' }}
+                        value={name}
+                        onChange={(event) => {
+                            setName(event.target.value);
+                        }}
+                    />
+                </div>
+                <div className="roomPublic">
+                    <p>Set room to public:</p>
+                    <Switch
+                        onChange={(e) => {
+                            setIsPublic(e.target.checked);
+                        }}
+                    />
+                </div>
+                {isPublic ? (
+                    ''
+                ) : (
+                    <div className="roomPassword">
+                        <p>Password:</p>
+                        <InputBase
+                            className="searchBar"
+                            placeholder="password"
+                            // inputProps={{ 'aria-label': 'search' }}
+                            style={{ color: '#fff' }}
+                            type="password"
+                            value={pass}
+                            onChange={(event) => {
+                                setPass(event.target.value);
+                            }}
+                        />
+                    </div>
+                )}
+            </div>
             <p>Max number of players:</p>
             <Slider
                 defaultValue={5}

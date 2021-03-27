@@ -9,6 +9,7 @@ import Content from 'components/Content/Content';
 import PlayersList from 'pages/Room/CreateRoom/PlayersList/PlayersList';
 import { Link } from 'react-router-dom';
 import CreateRoomConfig from './CreateRoom/CreateRoomConfig';
+import { Add, Visibility } from '@material-ui/icons';
 
 function Room() {
     const params = useParams<{ id: string; join: string }>();
@@ -41,6 +42,13 @@ function Room() {
                 </div>
                 <div className="configuration">
                     <CreateRoomConfig />
+                    <div className="notifications">
+                        <div className="notification">
+                            <span>Wojtyła wants to add his own playlist to the mix!</span>
+                            <BaseButton size="small" icon={<Visibility fontSize="inherit" />} text="Preview" />
+                            <BaseButton size="small" icon={<Add fontSize="inherit" />} text="Add!" />
+                        </div>
+                    </div>
                 </div>
             </Content>
         </Container>

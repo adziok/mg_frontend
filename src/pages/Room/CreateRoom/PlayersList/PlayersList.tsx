@@ -34,6 +34,7 @@ function PlayersList() {
                         <div className="players-list__element--points">
                             {
                                 <Close
+                                    style={{ cursor: 'pointer' }}
                                     onClick={() => {
                                         handleKickPlayer(player);
                                     }}

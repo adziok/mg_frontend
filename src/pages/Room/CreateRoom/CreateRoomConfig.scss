@@ -1,0 +1,45 @@
+@import 'styles/_colors';
+@import 'styles/_mixins';
+
+.createRoomContent > *{
+  
+  margin: 0 0 10px 0;
+}
+
+.createRoomContent{
+  width: 100%;
+  @include scrollBarY();
+  padding-left: 5px;
+  .roomConfigs{
+    display: flex;
+    flex-direction: column;
+    & > * {
+      display: inherit;
+      flex-direction: row;
+      align-items: center;
+      & > :nth-child(2){
+        margin-left: 10px;
+      }
+    }
+  }
+  .buttons > *{
+    margin: 10px 10px 10px 0;
+  }
+  .buttons {
+    display: flex;
+    .cancelButton {
+      background: linear-gradient($violet, red);
+    }
+    .createButton {
+      background: linear-gradient($violet, $sliderBlue);
+    }
+  }
+  .MuiSlider-marked {
+    color: $sliderBlue;
+
+  }
+
+  .MuiSlider-markLabel {
+    color: #fff;
+  }
+}
