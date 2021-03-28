@@ -39,7 +39,7 @@ const useRooms = (initialState = []) => {
     return [rooms, reloadRooms] as [
         {
             _id: string;
-            players: number;
+            playersNumber: number;
             name: string;
             settings: any;
             tags: [];
@@ -204,7 +204,7 @@ function Root() {
                                         <RoomBar
                                             key={room._id}
                                             name={room.name}
-                                            players={room.players + '/10'}
+                                            players={room.playersNumber + '/10'}
                                             tags={['Rock']}
                                             id={room._id}
                                         />

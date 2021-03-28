@@ -29,12 +29,10 @@ export const joinRoom = (roomId: string) => {
     );
 };
 
-export const leftRoom = (playerId: string) => {
+export const leftRoom = () => {
     return axios.post(
         BASE_URL + '/room/left',
-        {
-            playerId,
-        },
+        {},
         {
             withCredentials: false,
         }
@@ -66,11 +64,10 @@ export const createGuest = (nick: string, image: string) => {
     );
 };
 
-export const startGame = (playerId: string, roomId: string) => {
+export const startGame = (roomId: string) => {
     return axios.post(
         BASE_URL + '/game',
         {
-            playerId,
             roomId,
         },
         {

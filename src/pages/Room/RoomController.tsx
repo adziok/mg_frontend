@@ -1,12 +1,13 @@
 import React, { useContext, useReducer, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { joinRoom, getCurrentRoom } from '../../utils/actions';
+import { joinRoom, getCurrentRoom, leftRoom, startGame } from '../../utils/actions';
 import { WSContext } from 'core/WebSockets/WebSocketsProvider';
 
 type LoadRoom = {
     room: {
         _id: string;
-        players: number;
+        players: any[];
+        playersNumber: number;
         name: string;
         settings: any;
         tags: [];
@@ -62,11 +63,21 @@ export const useRoomController = () => {
             .catch(({ data }) => dispatch({ type: 'loadRoomFailure', payload: data }));
     };
 
+    const leaveRoom = () => {
+        leftRoom().finally(() => history.push('/'));
+    };
+
+    const startNewGame = () => {
+        startGame(room.room?._id!);
+    };
+
     return [
         room,
         {
             reloadRoom: reloadRoomAction,
             joinRoom: joinRoomAction,
+            leaveRoom,
+            startNewGame,
         },
     ] as [LoadRoom, any];
 };
