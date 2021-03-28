@@ -1,18 +1,63 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './GameBoard.scss';
 import { BaseButton } from 'components/Buttons';
 import GameTimer from './GameTimer/GameTimer';
 
 function GameBoardGuess() {
+    const qestions = [
+        {
+            question: 'Z warkoczykami czy bez warkoczyków?',
+            answers: [
+                {
+                    answer: 'Z warkoczykami',
+                    isCorrect: false,
+                },
+                {
+                    answer: 'Bez warkoczyków',
+                    isCorrect: false,
+                },
+                {
+                    answer: 'Po co mam wybierać',
+                    isCorrect: false,
+                },
+                {
+                    answer: 'Najlepiej zabrać obie',
+                    isCorrect: true,
+                },
+            ],
+        },
+    ];
+
+    const handleAnswer = (isCorrect: boolean) => {
+        if (isCorrect) {
+            return 'fillBlue';
+        } else {
+            return 'fillRed';
+        }
+    };
+    const [answerClicked, setAnswerClicked] = useState<boolean>(false);
+
     return (
-        <div className="game-guess">
-            <div className="game-guess__title">Z warkoczykami czy bez warkoczyków?</div>
-            <div className="game-guess__answers">
-                <BaseButton text="Z warkoczykami" />
-                <BaseButton text="Bez warkoczyków" />
-                <BaseButton text="Po co mam wybierać" />
-                <BaseButton text="Najlepiej zabrać obie" />
-            </div>
+        <div>
+            {qestions.map((question, key) => {
+                return (
+                    <div key={key} className="game-guess">
+                        <div className="game-guess__title">{question.question}</div>
+                        <div className="game-guess__answers">
+                            {question.answers.map((answer, key) => {
+                                return (
+                                    <BaseButton
+                                        key={key}
+                                        text={answer.answer}
+                                        style={answerClicked ? handleAnswer(answer.isCorrect) : 'outlined'}
+                                        onClick={() => setAnswerClicked(true)}
+                                    />
+                                );
+                            })}
+                        </div>
+                    </div>
+                );
+            })}
         </div>
     );
 }
