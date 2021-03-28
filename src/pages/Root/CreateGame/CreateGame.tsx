@@ -1,16 +1,18 @@
 import React, { useContext, useState } from 'react';
-
+import { useHistory } from 'react-router-dom';
 import { InputBase, Slider, Typography, Switch } from '@material-ui/core';
 import { Add, Close } from '@material-ui/icons';
 
 import Container from 'components/Container/Container';
 import { BaseButton } from 'components/Buttons';
 import './CreateGame.scss';
+import { createRoom } from 'utils/actions';
 
 import { time, players, songs } from './labels';
 import { CreateGameContext } from 'pages/Root/CreateGameContext';
 
 function CreateGame(props: any) {
+    const history = useHistory();
     const { isBeingCreated, setIsBeingCreated } = useContext(CreateGameContext);
 
     const [name, setName] = useState<string>('');
@@ -18,6 +20,10 @@ function CreateGame(props: any) {
     const [maxNumOfPlayers, setMaxNumOfPlayers] = useState<any>(5);
     const [timePerRound, setTimePerRound] = useState<any>(15);
     const [songsToGuess, setSongsToGuess] = useState<any>(15);
+
+    const createNewRoom = () => {
+        createRoom().then(() => window.location.reload());
+    };
 
     const createRoomObj = () => {
         return {
@@ -113,6 +119,7 @@ function CreateGame(props: any) {
                     // additionalClass="createButton"
                     style="fillBlue"
                     onClick={() => {
+                        createNewRoom();
                         console.log(createRoomObj());
                     }}
                     text="Create"

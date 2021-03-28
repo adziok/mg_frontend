@@ -5,12 +5,10 @@ import { getConfig } from '../configs';
 const config = getConfig();
 export const BASE_URL = config.baseUrl;
 
-export const createRoom = (creatorId: string) => {
+export const createRoom = () => {
     return axios.post(
         BASE_URL + '/room',
-        {
-            creatorId,
-        },
+        {},
         {
             withCredentials: false,
         }
