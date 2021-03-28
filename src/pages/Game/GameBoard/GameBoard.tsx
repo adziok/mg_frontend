@@ -1,9 +1,17 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './GameBoard.scss';
 import { BaseButton } from 'components/Buttons';
 import GameTimer from './GameTimer/GameTimer';
+import { WSContext } from 'core/WebSockets/WebSocketsProvider';
 
 function GameBoardGuess() {
+    const { handleEvent, emitEvent } = useContext(WSContext);
+
+    useEffect(() => {
+        handleEvent('ROUND_STARTED', () => {
+            console.log('round has started');
+        });
+    }, []);
     const qestions = [
         {
             question: 'Z warkoczykami czy bez warkoczyków?',
