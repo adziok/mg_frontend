@@ -6,35 +6,17 @@ import { WSContext } from 'core/WebSockets/WebSocketsProvider';
 
 function GameBoardGuess() {
     const { handleEvent, emitEvent } = useContext(WSContext);
+    const [question, setQuestion] = useState<any>({});
 
     useEffect(() => {
-        handleEvent('ROUND_STARTED', () => {
+        // console.log('??????');
+        // emitEvent('JOIN_ROOM', { roomId: '606077ff3b151fe5712f02c5' });
+        handleEvent('ROUND_STARTED', (e: any) => {
             console.log('round has started');
+            console.log(e);
+            setQuestion({ answers: e.value.roundAnswers, question: e.value.roundQuestion });
         });
     }, []);
-    const qestions = [
-        {
-            question: 'Z warkoczykami czy bez warkoczyków?',
-            answers: [
-                {
-                    answer: 'Z warkoczykami',
-                    isCorrect: false,
-                },
-                {
-                    answer: 'Bez warkoczyków',
-                    isCorrect: false,
-                },
-                {
-                    answer: 'Po co mam wybierać',
-                    isCorrect: false,
-                },
-                {
-                    answer: 'Najlepiej zabrać obie',
-                    isCorrect: true,
-                },
-            ],
-        },
-    ];
 
     const handleAnswer = (isCorrect: boolean) => {
         if (isCorrect) {
@@ -47,25 +29,27 @@ function GameBoardGuess() {
 
     return (
         <div>
-            {qestions.map((question, key) => {
-                return (
-                    <div key={key} className="game-guess">
-                        <div className="game-guess__title">{question.question}</div>
-                        <div className="game-guess__answers">
-                            {question.answers.map((answer, key) => {
-                                return (
-                                    <BaseButton
-                                        key={key}
-                                        text={answer.answer}
-                                        style={answerClicked ? handleAnswer(answer.isCorrect) : 'outlined'}
-                                        onClick={() => setAnswerClicked(true)}
-                                    />
-                                );
-                            })}
-                        </div>
+            {/* {qestions.map((question, key) => {
+                return ( */}
+            {question && (
+                <div className="game-guess">
+                    <div className="game-guess__title">{question.question}</div>
+                    <div className="game-guess__answers">
+                        {question?.answers?.map((answer: any, key: any) => {
+                            return (
+                                <BaseButton
+                                    key={key}
+                                    text={answer}
+                                    // style={answerClicked ? handleAnswer(answer.isCorrect) : 'outlined'}
+                                    // onClick={() => setAnswerClicked(true)}
+                                />
+                            );
+                        })}
                     </div>
-                );
-            })}
+                </div>
+            )}
+            {/* );
+            })} */}
         </div>
     );
 }

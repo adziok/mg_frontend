@@ -18,6 +18,7 @@ function Room() {
     useEffect(() => {
         if (params?.id && params?.join) {
             joinRoom(params?.id);
+            reloadRoom();
         }
         if (params?.id) {
             reloadRoom();

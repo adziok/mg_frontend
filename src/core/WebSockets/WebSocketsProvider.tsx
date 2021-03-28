@@ -23,7 +23,7 @@ type WebSocketsProviderProps = {
 
 const WebSocketsProvider = ({ children, settings }: WebSocketsProviderProps) => {
     const [socketClient, setSocketClient] = useState<Socket>();
-    const [listeners, setListeners] = useState<any[]>();
+    const [listeners, setListeners] = useState<any[]>([]);
 
     useEffect(() => {
         settings && createConnection(settings);
