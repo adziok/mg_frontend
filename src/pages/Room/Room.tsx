@@ -13,7 +13,7 @@ import { Add, Visibility, Close } from '@material-ui/icons';
 
 function Room() {
     const params = useParams<{ id: string; join: string }>();
-    const [room, { joinRoom, reloadRoom }] = useRoomController();
+    const [room, { joinRoom, reloadRoom, leaveRoom, startNewGame }] = useRoomController();
 
     useEffect(() => {
         if (params?.id && params?.join) {
@@ -28,17 +28,15 @@ function Room() {
         <Container classNames="room">
             <Header>
                 <div className="headerMenu">
-                    <Link to="/" className="headerMenu__leaveButton">
-                        {<BaseButton text="Leave game" style="fillRed" />}
-                    </Link>
+                    <BaseButton text="Leave room" style="fillRed" onClick={leaveRoom} />
                     <BaseButton text="Invite friends" style="fillBlue" />
-                    <BaseButton text="About us" />
+                    <BaseButton text="Start game" onClick={startNewGame} />
                 </div>
             </Header>
 
             <Content>
                 <div className="lobby">
-                    <PlayersList />
+                    <PlayersList players={room.room?.players} />
                 </div>
                 <div className="configuration">
                     <CreateRoomConfig />
