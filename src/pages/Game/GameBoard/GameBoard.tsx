@@ -7,14 +7,15 @@ import { WSContext } from 'core/WebSockets/WebSocketsProvider';
 function GameBoardGuess() {
     const { handleEvent, emitEvent } = useContext(WSContext);
     const [question, setQuestion] = useState<any>({});
+    const [validAnswer, setValidAnswer] = useState<number | null>(null);
 
     useEffect(() => {
-        // console.log('??????');
-        // emitEvent('JOIN_ROOM', { roomId: '606077ff3b151fe5712f02c5' });
         handleEvent('ROUND_STARTED', (e: any) => {
-            console.log('round has started');
-            console.log(e);
             setQuestion({ answers: e.value.roundAnswers, question: e.value.roundQuestion });
+            setValidAnswer(null);
+        });
+        handleEvent('ROUND_ENDED', (e: any) => {
+            setValidAnswer(e.value.validAnswer);
         });
     }, []);
 
@@ -35,12 +36,12 @@ function GameBoardGuess() {
                 <div className="game-guess">
                     <div className="game-guess__title">{question.question}</div>
                     <div className="game-guess__answers">
-                        {question?.answers?.map((answer: any, key: any) => {
+                        {question?.answers?.map((answer: any, key: number) => {
                             return (
                                 <BaseButton
                                     key={key}
                                     text={answer}
-                                    // style={answerClicked ? handleAnswer(answer.isCorrect) : 'outlined'}
+                                    style={(key === validAnswer && 'outlined') || 'fillBlue'}
                                     // onClick={() => setAnswerClicked(true)}
                                 />
                             );
