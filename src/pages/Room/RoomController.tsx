@@ -44,10 +44,10 @@ export const useRoomController = () => {
     }, loadRoomInitial);
 
     const joinWsRoom = (id: string) => {
-        emitEvent('JOIN_ROOM', { roomId: id });
         handleEvent('GAME_STARTED', (e) => {
             history.push('/game');
         });
+        emitEvent('JOIN_ROOM', { roomId: id });
     };
 
     const reloadRoomAction = (): void => {
@@ -59,7 +59,7 @@ export const useRoomController = () => {
 
     const joinRoomAction = (id: string): void => {
         joinRoom(id)
-            .then(() => (reloadRoomAction(), joinWsRoom(id)))
+            .then(() => reloadRoomAction())
             .catch(({ data }) => dispatch({ type: 'loadRoomFailure', payload: data }));
     };
 

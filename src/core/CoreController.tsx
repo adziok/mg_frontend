@@ -31,7 +31,7 @@ const createConfig = (playerId: string) => ({
     url: config.baseWs,
     socketOptions: {
         query: { playerId },
-        forceNew: false,
+        forceNew: true,
         transports: ['websocket'],
         upgrade: false,
         reconnection: true,

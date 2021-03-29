@@ -15,17 +15,19 @@ function Core() {
     return (
         <WebSocketsProvider settings={initApp() as any}>
             <Switch>
-                <CreateGameProvider>
-                    <Route exact path="/">
-                        <Root />
-                    </Route>
-                    <Route exact path="/game">
-                        <Game />
-                    </Route>
-                    <Route exact path="/room/:id/:join?">
-                        <Room />
-                    </Route>
-                </CreateGameProvider>
+                {!state?.loading && (
+                    <CreateGameProvider>
+                        <Route exact path="/">
+                            <Root />
+                        </Route>
+                        <Route exact path="/game">
+                            <Game />
+                        </Route>
+                        <Route exact path="/room/:id/:join?">
+                            <Room />
+                        </Route>
+                    </CreateGameProvider>
+                )}
             </Switch>
         </WebSocketsProvider>
     );
