@@ -205,7 +205,7 @@ function Root() {
                                         />
                                     );
                                 })}
-                                {generateSampleRooms()}
+                                {roomsArr}
                             </div>
                         </div>
                     </main>
