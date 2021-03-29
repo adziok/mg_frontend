@@ -115,7 +115,7 @@ function CreateGame(props: any) {
             />
             <div className="buttons">
                 <BaseButton
-                    icon={<Add />}
+                    icon={<Add key="addIcon" />}
                     // additionalClass="createButton"
                     style="fillBlue"
                     onClick={() => {
@@ -125,7 +125,7 @@ function CreateGame(props: any) {
                     text="Create"
                 />
                 <BaseButton
-                    icon={<Close />}
+                    icon={<Close key="closeIcon" />}
                     style="fillRed"
                     // additionalClass="cancelButton"
                     // className="createButton"
