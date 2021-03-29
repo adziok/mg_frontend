@@ -9,11 +9,13 @@ function GameBoardGuess() {
     const { handleEvent, emitEvent } = useContext(WSContext);
     const [round, setRound] = useState<any>({});
     const [validAnswer, setValidAnswer] = useState<number | null>(null);
+    const [roundCount, setRoundCount] = useState<number>(0);
 
     useEffect(() => {
         handleEvent('ROUND_STARTED', (e: any) => {
             setRound({ answers: e.value.roundAnswers, question: e.value.roundQuestion, id: e.value.roundId });
             setValidAnswer(null);
+            setRoundCount(roundCount + 1);
         });
         handleEvent('ROUND_ENDED', (e: any) => {
             setValidAnswer(e.value.validAnswer);
@@ -38,7 +40,7 @@ function GameBoardGuess() {
                                 <BaseButton
                                     key={key}
                                     text={answer}
-                                    style={(key === validAnswer && 'outlined') || 'fillBlue'}
+                                    style={(key === validAnswer && 'fillBlue') || 'outlined'}
                                     onClick={() => handleAnswer(key)}
                                 />
                             );
@@ -46,8 +48,7 @@ function GameBoardGuess() {
                     </div>
                 </div>
             )}
-            {/* );
-            })} */}
+            <span className="game-board__round__roundIndicator">{round ? `Round ${roundCount}/10` : ''}</span>
         </div>
     );
 }
@@ -58,10 +59,7 @@ function GameBoard() {
             <div className="game-board__guess">
                 <GameBoardGuess />
             </div>
-            <div className="game-board__round">
-                <GameTimer time={20} />
-                <span className="game-board__round__roundIndicator">Round 2/10</span>
-            </div>
+            <div className="game-board__round">{true ? <GameTimer time={20} /> : ''}</div>
         </div>
     );
 }
