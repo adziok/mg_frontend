@@ -59,7 +59,7 @@ export const useRoomController = () => {
 
     const joinRoomAction = (id: string): void => {
         joinRoom(id)
-            .then(() => reloadRoomAction())
+            .then(() => (reloadRoomAction(), joinWsRoom(id)))
             .catch(({ data }) => dispatch({ type: 'loadRoomFailure', payload: data }));
     };
 

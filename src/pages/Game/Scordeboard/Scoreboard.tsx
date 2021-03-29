@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './Scoreboard.scss';
 
 import { Star } from '@material-ui/icons';
 
 import Container from 'components/Container/Container';
+import { WSContext } from '../../../core/WebSockets/WebSocketsProvider';
+import { getScoreBoard } from '../../../utils/actions';
 
 const playersList = [
     {
@@ -62,15 +64,29 @@ const starsEnum = [
 Object.freeze(starsEnum);
 
 function PlayersList() {
+    const { handleEvent, emitEvent } = useContext(WSContext);
+    const [players, setPlayers] = useState<any[]>([]);
+    const loadScoreBoard = () => {
+        getScoreBoard().then(({ data }: any) => {
+            setPlayers(data.scoreBoard);
+        });
+    };
+
+    useEffect(() => {
+        handleEvent('ROUND_ENDED', (e: any) => {
+            loadScoreBoard();
+        });
+    }, []);
+
     return (
         <div className="players-list">
             <header className="players-list__header">Players list:</header>
             <div className="players-list__list">
-                {playersList.map((player, i) => (
+                {players.map((player, i) => (
                     <div className="players-list__element" key={i}>
                         <div className="players-list__element--index"> {i < 3 ? starsEnum[i] : ''} </div>
-                        <div className="players-list__element--name"> {player.name} </div>
-                        <div className="players-list__element--points"> {player.points} </div>
+                        <div className="players-list__element--name"> {player.playerId} </div>
+                        <div className="players-list__element--points"> {player.score} </div>
                     </div>
                 ))}
             </div>

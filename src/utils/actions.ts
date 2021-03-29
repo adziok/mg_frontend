@@ -73,3 +73,22 @@ export const startGame = (roomId: string) => {
         }
     );
 };
+
+export const getScoreBoard = () => {
+    return axios.get(BASE_URL + '/game/score-board', {
+        withCredentials: false,
+    });
+};
+
+export const makeGuess = (roundId: string, answer: number) => {
+    return axios.post(
+        BASE_URL + '/round/guess',
+        {
+            answer,
+            roundId,
+        },
+        {
+            withCredentials: false,
+        }
+    );
+};

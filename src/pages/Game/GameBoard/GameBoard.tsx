@@ -3,16 +3,17 @@ import './GameBoard.scss';
 import { BaseButton } from 'components/Buttons';
 import GameTimer from './GameTimer/GameTimer';
 import { WSContext } from 'core/WebSockets/WebSocketsProvider';
+import { makeGuess } from '../../../utils/actions';
 
 function GameBoardGuess() {
     const { handleEvent, emitEvent } = useContext(WSContext);
-    const [question, setQuestion] = useState<any>({});
+    const [round, setRound] = useState<any>({});
     const [validAnswer, setValidAnswer] = useState<number | null>(null);
     const [roundCount, setRoundCount] = useState<number>(0);
 
     useEffect(() => {
         handleEvent('ROUND_STARTED', (e: any) => {
-            setQuestion({ answers: e.value.roundAnswers, question: e.value.roundQuestion });
+            setRound({ answers: e.value.roundAnswers, question: e.value.roundQuestion, id: e.value.roundId });
             setValidAnswer(null);
             setRoundCount(roundCount + 1);
         });
@@ -21,12 +22,8 @@ function GameBoardGuess() {
         });
     }, []);
 
-    const handleAnswer = (isCorrect: boolean) => {
-        if (isCorrect) {
-            return 'fillBlue';
-        } else {
-            return 'fillRed';
-        }
+    const handleAnswer = (index: number) => {
+        makeGuess(round.id, index);
     };
     const [answerClicked, setAnswerClicked] = useState<boolean>(false);
 
@@ -34,24 +31,24 @@ function GameBoardGuess() {
         <div>
             {/* {qestions.map((question, key) => {
                 return ( */}
-            {question && (
+            {round && (
                 <div className="game-guess">
-                    <div className="game-guess__title">{question.question}</div>
+                    <div className="game-guess__title">{round.question}</div>
                     <div className="game-guess__answers">
-                        {question?.answers?.map((answer: any, key: number) => {
+                        {round?.answers?.map((answer: any, key: number) => {
                             return (
                                 <BaseButton
                                     key={key}
                                     text={answer}
                                     style={(key === validAnswer && 'fillBlue') || 'outlined'}
-                                    // onClick={() => setAnswerClicked(true)}
+                                    onClick={() => handleAnswer(key)}
                                 />
                             );
                         })}
                     </div>
                 </div>
             )}
-            <span className="game-board__round__roundIndicator">{question ? `Round ${roundCount}/10` : ''}</span>
+            <span className="game-board__round__roundIndicator">{round ? `Round ${roundCount}/10` : ''}</span>
         </div>
     );
 }
