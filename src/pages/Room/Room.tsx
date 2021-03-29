@@ -44,9 +44,13 @@ function Room() {
                     <div className="notifications">
                         <div className="notification">
                             <span>Wojtyła wants to add his own playlist to the mix!</span>
-                            <BaseButton size="small" icon={<Visibility fontSize="inherit" />} text="Preview" />
-                            <BaseButton size="small" icon={<Close fontSize="inherit" />} text="Naaah" />
-                            <BaseButton size="small" icon={<Add fontSize="inherit" />} text="Add!" />
+                            <BaseButton
+                                size="small"
+                                icon={<Visibility key="previewIcon" fontSize="inherit" />}
+                                text="Preview"
+                            />
+                            <BaseButton size="small" icon={<Close key="closeIcon" fontSize="inherit" />} text="Naaah" />
+                            <BaseButton size="small" icon={<Add key="addIcon" fontSize="inherit" />} text="Add!" />
                         </div>
                     </div>
                 </div>

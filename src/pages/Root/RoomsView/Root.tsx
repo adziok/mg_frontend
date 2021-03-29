@@ -102,7 +102,7 @@ function Root() {
         <Container classNames="rooms">
             <Header>
                 <div className="headerMenu">
-                    <BaseButton text="Play" additionalClass="headerMenu__item" />
+                    <BaseButton text="Sign Up" additionalClass="headerMenu__item" />
                     <BaseButton text="Login" additionalClass="headerMenu__item" />
                     <BaseButton text="About Us" additionalClass="headerMenu__item" />
                 </div>
@@ -153,18 +153,13 @@ function Root() {
                     </div>
                     <div className="bottomOptions">
                         <div className="createRoom">
-                            {/* <Link to="/game" className="createButton">
-                                <Add />
-                                Create room
-                            </Link> */}
                             <BaseButton
-                                icon={<Add />}
+                                icon={<Add key="addIcon" />}
                                 text="Create room"
                                 additionalClass={isBeingCreated ? 'buttonHidden' : ''}
                                 style="fillBlue"
                                 onClick={() => setIsBeingCreated(true)}
                             />
-                            {/* </BaseButton> */}
                         </div>
 
                         <div className="showFullSwitch">
@@ -210,7 +205,7 @@ function Root() {
                                         />
                                     );
                                 })}
-                                {generateSampleRooms}
+                                {generateSampleRooms()}
                             </div>
                         </div>
                     </main>
