@@ -20,6 +20,9 @@ function GameBoardGuess() {
         handleEvent('ROUND_ENDED', (e: any) => {
             setValidAnswer(e.value.validAnswer);
         });
+        handleEvent('GAME_ENDED', () => {
+            window.location.reload();
+        });
     }, []);
 
     const handleAnswer = (index: number) => {

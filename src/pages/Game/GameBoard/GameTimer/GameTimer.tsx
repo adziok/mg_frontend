@@ -69,9 +69,7 @@ export default function GameTimer({ time: roundTime }: GameTimerDisplay) {
     const [progress, setProgress] = React.useState(roundTime * roundTimeToFull);
     React.useEffect(() => {
         const timer = setInterval(() => {
-            setProgress((prevProgress) =>
-                prevProgress <= 0 ? roundTime * roundTimeToFull : prevProgress - roundTimeToFull
-            );
+            setProgress((prevProgress) => (prevProgress <= 0 ? 0 : prevProgress - roundTimeToFull));
         }, 1000);
         return () => {
             clearInterval(timer);
