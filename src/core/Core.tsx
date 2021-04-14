@@ -11,26 +11,26 @@ import { getCurrentRoom } from '../utils/actions';
 import { useCoreController } from './CoreController';
 
 function Core() {
-    const [state, { initApp }] = useCoreController();
-    return (
-        <WebSocketsProvider settings={initApp() as any}>
-            <Switch>
-                {!state?.loading && (
-                    <CreateGameProvider>
-                        <Route exact path="/">
-                            <Root />
-                        </Route>
-                        <Route exact path="/game">
-                            <Game />
-                        </Route>
-                        <Route exact path="/room/:id/:join?">
-                            <Room />
-                        </Route>
-                    </CreateGameProvider>
-                )}
-            </Switch>
-        </WebSocketsProvider>
-    );
+	const [state, { initApp }] = useCoreController();
+	return (
+		<WebSocketsProvider settings={initApp() as any}>
+			<Switch>
+				{!state?.loading && (
+					<CreateGameProvider>
+						<Route exact path="/">
+							<Root />
+						</Route>
+						<Route exact path="/game">
+							<Game />
+						</Route>
+						<Route exact path="/room/:id/:join?">
+							<Room />
+						</Route>
+					</CreateGameProvider>
+				)}
+			</Switch>
+		</WebSocketsProvider>
+	);
 }
 
 export default Core;

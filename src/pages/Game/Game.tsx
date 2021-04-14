@@ -9,28 +9,28 @@ import GameBoard from './GameBoard/GameBoard';
 import { Link } from 'react-router-dom';
 
 function Game() {
-    return (
-        <Container classNames="game">
-            <Header>
-                <div className="headerMenu">
-                    <Link to="/" className="headerMenu__leaveButton">
-                        {<BaseButton text="Leave game" style="fillRed" />}
-                    </Link>
-                    <BaseButton text="Invite friends" style="fillBlue" />
-                    <BaseButton text="About us" />
-                </div>
-            </Header>
+	return (
+		<Container classNames="game">
+			<Header>
+				<div className="headerMenu">
+					<Link to="/" className="headerMenu__leaveButton">
+						{<BaseButton text="Leave game" style="fillRed" />}
+					</Link>
+					<BaseButton text="Invite friends" style="fillBlue" />
+					<BaseButton text="About us" />
+				</div>
+			</Header>
 
-            <Content>
-                <div className="playersList">
-                    <Scoreboard />
-                </div>
-                <div className="gameBoard">
-                    <GameBoard />
-                </div>
-            </Content>
-        </Container>
-    );
+			<Content>
+				<div className="playersList">
+					<Scoreboard />
+				</div>
+				<div className="gameBoard">
+					<GameBoard />
+				</div>
+			</Content>
+		</Container>
+	);
 }
 
 export default Game;

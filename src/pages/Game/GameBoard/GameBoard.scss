@@ -3,45 +3,43 @@
 @import 'styles/_typings';
 
 .game-board {
-    display: flex;
+	display: flex;
 
-    &__guess {
-        flex-basis: 65%;
+	&__guess {
+		flex-basis: 65%;
+	}
 
-    }
-
-    &__round {
-        flex-basis: 35%;
-        @include flexCenter();
-        flex-direction: column;
-        & > * {
-            margin-bottom: 20px;
-        }
-        &__roundIndicator {
-            font-size: 30px;
-        }
-    }
+	&__round {
+		flex-basis: 35%;
+		@include flexCenter();
+		flex-direction: column;
+		& > * {
+			margin-bottom: 20px;
+		}
+		&__roundIndicator {
+			font-size: 30px;
+		}
+	}
 }
 
 .game-guess {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
 
-    &__title {
-        height: 50px;
-        font-size: $textXl;
-        text-align: center;
-        font-family: $italicFont;
-    }
+	&__title {
+		height: 50px;
+		font-size: $textXl;
+		text-align: center;
+		font-family: $italicFont;
+	}
 
-    &__answers {
-        display: grid;
-        grid-template-columns: 100%;
-        gap: 20px;
-    }
+	&__answers {
+		display: grid;
+		grid-template-columns: 100%;
+		gap: 20px;
+	}
 
-    &__answer {
-
-    }
+	&__answer {
+	}
 }

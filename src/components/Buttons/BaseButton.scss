@@ -2,60 +2,60 @@
 @import 'styles/_colors';
 
 .top-menu-button {
-    // all: unset;
-    &:focus{
-        outline: 0;
-    }
-    &:hover{
-        span {
-            transform: scale(1.1);
-            transition-duration: 0.2s;
-        }
-    }
-    span {
-        display: flex;
-        transition-duration: 0.2s;
-        align-items: center;
-    }
-    
-    background: linear-gradient($violet, $pinkish);
-    box-shadow: 0 0 2em $violet;
-    @include flexCenter();
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    font-weight: 600;
+	// all: unset;
+	&:focus {
+		outline: 0;
+	}
+	&:hover {
+		span {
+			transform: scale(1.1);
+			transition-duration: 0.2s;
+		}
+	}
+	span {
+		display: flex;
+		transition-duration: 0.2s;
+		align-items: center;
+	}
 
-    &.small {
-        padding: 4px 10px;
-        font-size: 14px;
-    }
+	background: linear-gradient($violet, $pinkish);
+	box-shadow: 0 0 1em $violet;
+	@include flexCenter();
+	color: #fff;
+	border: none;
+	cursor: pointer;
+	font-weight: 600;
 
-    &.medium {
-        padding: 6px 15px;
-        font-size: 16px;
-    }
+	&.small {
+		padding: 4px 10px;
+		font-size: 14px;
+	}
 
-    &.large {
-        padding: 8px 20px;
-        font-size: 18px;
-    }
-    
-    &.rounded {
-        border-radius: 30px;
-    }
-    &.outlined {
-        background: none;
-        border: 1px solid #fff;
-        box-shadow: 0 0 1em $violet;
-    }
-    &.fillRed{
-        background: linear-gradient($violet, $red);
-    }
-    &.fillBlue{
-        background: linear-gradient($violet, $sliderBlue);
-    }
-    &.icon {
-        font-size: 10px;
-    }
+	&.medium {
+		padding: 6px 15px;
+		font-size: 16px;
+	}
+
+	&.large {
+		padding: 8px 20px;
+		font-size: 18px;
+	}
+
+	&.rounded {
+		border-radius: 30px;
+	}
+	&.outlined {
+		background: none;
+		border: 1px solid #fff;
+		box-shadow: 0 0 1em $violet;
+	}
+	&.fillRed {
+		background: linear-gradient($violet, $red);
+	}
+	&.fillBlue {
+		background: linear-gradient($violet, $sliderBlue);
+	}
+	&.icon {
+		font-size: 10px;
+	}
 }

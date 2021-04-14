@@ -1,40 +1,45 @@
 @import 'styles/_mixins';
 @import 'styles/_colors';
 
-.room {
-    display: grid;
-    grid-template-columns: repeat(3, 33%);
-    border: solid 1px;
-    border-radius: 30px;
-    margin: 5px 0;
-    align-items: center;
-    padding: 8px;
+.roomBar {
+	display: grid;
+	grid-template-columns: repeat(3, 33%);
+	border: solid 1px;
+	border-radius: 30px;
+	margin: 5px 0;
+	align-items: center;
+	padding: 8px;
 
-    .name,
-    .players {
-        margin-left: 10px;
-    }
+	color: #fff;
 
-    .tags {
-        display: flex;
-        flex-direction: row;
+	&:link,
+	&:active,
+	&:hover,
+	&:visited {
+		text-decoration: none;
+	}
 
-        .tag {
-            padding: 3px 10px;
-            margin-left: 5px;
-            border-radius: 50px;
-            background: linear-gradient(to left, $violet, $pinkish);
-            @include flexCenter();
-        }
-    }
+	transition: 150ms ease-out;
+
+	.name,
+	.players {
+		margin-left: 10px;
+	}
+
+	.tags {
+		display: flex;
+		flex-direction: row;
+
+		.tag {
+			padding: 3px 10px;
+			margin-left: 5px;
+			border-radius: 50px;
+			background: linear-gradient(to left, $violet, $pinkish);
+			@include flexCenter();
+		}
+	}
 }
-.room {
-    color: #fff;
-
-    &:link,
-    &:active,
-    &:hover,
-    &:visited {
-        text-decoration: none;
-    }
+.roomBar:hover {
+	background-color: rgba($violet, 0.2);
+	transition: 150ms ease-out;
 }

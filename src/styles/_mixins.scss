@@ -1,7 +1,7 @@
 @mixin flexCenter {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 // @function strip-unit($value) {
@@ -78,20 +78,20 @@
 
 // @function calc-interpolation($min-screen, $min-value, $max-screen, $max-value) {
 @function calculate($min, $max, $screen-min, $screen-max, $unit) {
-    @return calc(
-        #{$min}#{$unit} + #{($max - $min)} * (100vw - #{$screen-min}#{$unit}) / (#{$screen-max} - #{$screen-min})
-    );
+	@return calc(
+		#{$min}#{$unit} + #{($max - $min)} * (100vw - #{$screen-min}#{$unit}) / (#{$screen-max} - #{$screen-min})
+	);
 }
 
 // @mixin fluid-type($font-min, $font-max, $screen-min, $screen-max) {
 //     font-size: #{$font-min}px;
-  
+
 //     @media only screen and (min-width: #{$screen-min}px) {
 //         font-size: calc(
 //             #{$font-min}px + #{($font-max - $font-min)} * (100vw - #{$screen-min}px) / (#{$screen-max} - #{$screen-min})
 //         );
 //     }
-  
+
 //     @media only screen and (min-width: #{$screen-max}px) {
 //         font-size: #{$font-max}px;
 //     }
@@ -99,13 +99,12 @@
 
 @mixin interpolate($properties, $min-screen, $max-screen, $min-value, $max-value, $unit: 'px') {
 	& {
-
 		@media (min-width: #{$max-screen}px) {
 			@each $property in $properties {
 				#{$property}: #{$max-value}#{$unit};
 			}
-        }
-    
+		}
+
 		@media (max-width: #{$min-screen}px) {
 			@each $property in $properties {
 				#{$property}: #{$min-value}#{$unit};
@@ -113,13 +112,7 @@
 		}
 
 		@each $property in $properties {
-			#{$property}: #{calculate(
-                $min-value,
-                $max-value,
-                $min-screen,
-                $max-screen,
-                $unit,
-            )};
+			#{$property}: #{calculate($min-value, $max-value, $min-screen, $max-screen, $unit)};
 		}
 	}
 }
@@ -128,23 +121,23 @@
 	&::-webkit-scrollbar {
 		width: 10px;
 	}
-	
+
 	/* Track */
-	&::-webkit-scrollbar-track{
+	&::-webkit-scrollbar-track {
 		opacity: 100%;
 	}
-	
+
 	/* Handle */
 	&::-webkit-scrollbar-thumb {
-		background: #888; 
+		background: #888;
 		border-radius: 10px;
 	}
-	
+
 	/* Handle on hover */
-	&::-webkit-scrollbar-thumb:hover{
-		background: #555
+	&::-webkit-scrollbar-thumb:hover {
+		background: #555;
 	}
-	scrollbar-color: #888 rgba(0,0,0,0);
+	scrollbar-color: #888 rgba(0, 0, 0, 0);
 	scrollbar-width: 10px;
 	scrollbar-highlight-color: #555;
 }

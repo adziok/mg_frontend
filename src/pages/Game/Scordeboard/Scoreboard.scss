@@ -3,35 +3,35 @@
 @import 'styles/_typings';
 
 .players-list {
-    width: 100%;
-    &__header {
-        font-size: $textLg;
-        padding-bottom: 5px;
-        margin-bottom: 10px;
-        border-bottom: 2px solid $violet;
-    }
-    &__list {
-        @include scrollBarY(); //nie chce się wyświetlić scroll, chyba coś związanego z gridem w __element
-        row-gap: 10px;
-        display: grid;
-        // grid-template-columns: repeat(3, 33%);
-    }
-    &__element {
-        display: grid;
-        grid-template-columns: 15% 60% 25%;
-        padding: 8px 15px;
-        border-radius: 30px;
-        background-color: $violet;
-        height: 40px;
+	width: 100%;
+	&__header {
+		font-size: $textLg;
+		padding-bottom: 5px;
+		margin-bottom: 10px;
+		border-bottom: 2px solid $violet;
+	}
+	&__list {
+		@include scrollBarY(); //nie chce się wyświetlić scroll, chyba coś związanego z gridem w __element
+		row-gap: 10px;
+		display: grid;
+		// grid-template-columns: repeat(3, 33%);
+	}
+	&__element {
+		display: grid;
+		grid-template-columns: 15% 60% 25%;
+		padding: 8px 15px;
+		border-radius: 30px;
+		background-color: $violet;
+		height: 40px;
 
-        &--index {
-        }
+		&--index {
+		}
 
-        &--name {
-        }
+		&--name {
+		}
 
-        &--points {
-            text-align: right;
-        }
-    }
+		&--points {
+			text-align: right;
+		}
+	}
 }

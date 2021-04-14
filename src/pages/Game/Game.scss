@@ -2,23 +2,22 @@
 @import 'styles/_colors';
 
 .game {
+	.headerMenu {
+		display: flex;
+		gap: 10px;
+		flex-direction: row;
 
-    .headerMenu {
-        display: flex;
-        gap: 10px;
-        flex-direction: row;
+		&__leaveButton:link {
+			text-decoration: none;
+		}
+	}
 
-        &__leaveButton:link {
-            text-decoration: none;
-        }
-    }
+	.playersList {
+		flex-basis: 25%;
+	}
 
-    .playersList {
-        flex-basis: 25%;
-    }
-
-    .gameBoard {
-        flex-basis: 75%;
-        padding-left: 50px;
-    }
+	.gameBoard {
+		flex-basis: 75%;
+		padding-left: 50px;
+	}
 }

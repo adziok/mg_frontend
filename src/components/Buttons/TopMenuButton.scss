@@ -2,47 +2,47 @@
 @import 'styles/_colors';
 
 .top-menu-button {
-    &:focus{
-        // offset: none;
-    }
-    background: linear-gradient($violet, $pinkish);
-    box-shadow: 0 0 2em $violet;
-    @include flexCenter();
-    border: none;
-    cursor: pointer;
-    font-weight: 600;
-    color: #fff;
+	&:focus {
+		// offset: none;
+	}
+	background: linear-gradient($violet, $pinkish);
+	box-shadow: 0 0 2em $violet;
+	@include flexCenter();
+	border: none;
+	cursor: pointer;
+	font-weight: 600;
+	color: #fff;
 
-    &.small {
-        padding: 4px 10px;
-        font-size: 14px;
-    }
+	&.small {
+		padding: 4px 10px;
+		font-size: 14px;
+	}
 
-    &.medium {
-        padding: 6px 15px;
-        font-size: 16px;
-    }
+	&.medium {
+		padding: 6px 15px;
+		font-size: 16px;
+	}
 
-    &.large {
-        padding: 8px 20px;
-        font-size: 18px;
-    }
-    
-    &.rounded {
-        border-radius: 30px;
-    }
+	&.large {
+		padding: 8px 20px;
+		font-size: 18px;
+	}
 
-    &.fill {
-        background: linear-gradient($violet, $pinkish);
-        box-shadow: 0 0 2em $violet;
-    }
+	&.rounded {
+		border-radius: 30px;
+	}
 
-    &.outlined {
-        border: solid 1px #fff;
-        background-color: transparent;
-        transition: background-color 200ms;
-        &:hover {
-            background-color: rgba(255, 255, 255, .4);
-        }
-    }
+	&.fill {
+		background: linear-gradient($violet, $pinkish);
+		box-shadow: 0 0 2em $violet;
+	}
+
+	&.outlined {
+		border: solid 1px #fff;
+		background-color: transparent;
+		transition: background-color 200ms;
+		&:hover {
+			background-color: rgba(255, 255, 255, 0.4);
+		}
+	}
 }
