@@ -5,10 +5,20 @@ import { getConfig } from '../configs';
 const config = getConfig();
 export const BASE_URL = config.baseUrl;
 
-export const createRoom = () => {
+interface roomSettigs {
+	answersLength: number;
+	timeForAnswer: number;
+	timeBetweenRounds: number;
+	maxPlayers: number;
+	numberOfRounds: number;
+	name: string;
+}
+export const createRoom = (roomSettingsObj: roomSettigs) => {
 	return axios.post(
 		BASE_URL + '/room',
-		{},
+		{
+			roomSettingsObj,
+		},
 		{
 			withCredentials: false,
 		}

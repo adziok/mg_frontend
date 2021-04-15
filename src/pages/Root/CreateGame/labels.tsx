@@ -39,6 +39,14 @@ export const players = [
 
 export const time = [
 	{
+		value: 2,
+		label: '2',
+	},
+	{
+		value: 5,
+		label: '5',
+	},
+	{
 		value: 10,
 		label: '10',
 	},
@@ -49,14 +57,6 @@ export const time = [
 	{
 		value: 20,
 		label: '20',
-	},
-	{
-		value: 25,
-		label: '25',
-	},
-	{
-		value: 30,
-		label: '30',
 	},
 ];
 

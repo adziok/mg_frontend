@@ -22,16 +22,17 @@ function CreateGame(props: any) {
 	const [songsToGuess, setSongsToGuess] = useState<any>(15);
 
 	const createNewRoom = () => {
-		createRoom().then(() => window.location.reload());
+		createRoom(createRoomObj()).then(() => window.location.reload());
 	};
 
 	const createRoomObj = () => {
 		return {
-			roomName: name,
-			roomPass: pass,
-			maxNumOfPlayers: maxNumOfPlayers,
-			timePerRound: timePerRound,
-			songsToGuess: songsToGuess,
+			answersLength: 4,
+			timeForAnswer: timePerRound,
+			timeBetweenRounds: 2,
+			maxPlayers: maxNumOfPlayers,
+			numberOfRounds: songsToGuess,
+			name: name,
 		};
 	};
 
@@ -93,9 +94,9 @@ function CreateGame(props: any) {
 			/>
 			<p>Time per round &#40;in seconds&#41;:</p>
 			<Slider
-				defaultValue={15}
-				min={10}
-				max={30}
+				defaultValue={10}
+				min={2}
+				max={20}
 				step={null}
 				marks={time}
 				style={{ width: '50%', marginLeft: '5px' }}
