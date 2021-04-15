@@ -1,18 +1,10 @@
 import axios from 'axios';
 import { io } from 'socket.io-client';
 import { getConfig } from '../configs';
-
+import { roomSettigs } from './interfaces';
 const config = getConfig();
 export const BASE_URL = config.baseUrl;
 
-interface roomSettigs {
-	answersLength: number;
-	timeForAnswer: number;
-	timeBetweenRounds: number;
-	maxPlayers: number;
-	numberOfRounds: number;
-	name: string;
-}
 export const createRoom = (roomSettingsObj: roomSettigs) => {
 	return axios.post(
 		BASE_URL + '/room',
