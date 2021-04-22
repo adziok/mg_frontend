@@ -28,8 +28,8 @@ function CreateGame(props: any) {
 	const createRoomObj = () => {
 		return {
 			answersLength: 4,
-			timeForAnswer: timePerRound,
-			timeBetweenRounds: 2,
+			timeForAnswer: timePerRound * 1000,
+			timeBetweenRounds: 2 * 1000,
 			maxPlayers: maxNumOfPlayers,
 			numberOfRounds: songsToGuess,
 			name: name,
