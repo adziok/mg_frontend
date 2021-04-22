@@ -9,7 +9,7 @@ export const createRoom = (roomSettingsObj: roomSettigs) => {
 	return axios.post(
 		BASE_URL + '/room',
 		{
-			roomSettingsObj,
+			...roomSettingsObj,
 		},
 		{
 			withCredentials: false,
